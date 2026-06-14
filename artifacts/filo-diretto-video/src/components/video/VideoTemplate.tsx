@@ -121,7 +121,7 @@ export default function VideoTemplate({
             <span className="text-xs font-bold tracking-[0.38em] uppercase text-cream">Filo Diretto</span>
           </div>
           <span className="text-xs tracking-[0.3em] uppercase text-cream/45">
-            HR Communication Platform · 2026
+            Comunicazione Interna · 2026
           </span>
         </div>
         <div className="mx-10 h-px bg-cream/10" />

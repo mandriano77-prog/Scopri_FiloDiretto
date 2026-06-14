@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const STATS = [
-  { value: '98%', label: 'Tasso di installazione' },
-  { value: '4x', label: 'Engagement in più' },
-  { value: '100%', label: 'Copertura aziendale' },
+  { value: '98%', label: 'Tasso di lettura' },
+  { value: '4x', label: 'Engagement reale' },
+  { value: '100%', label: 'Reward erogati' },
 ];
 
 export function Scene6() {
@@ -51,9 +51,9 @@ export function Scene6() {
         </motion.p>
 
         <div className="mb-16">
-          <div className="overflow-hidden mb-2">
+          <div className="mb-2">
             <motion.h1
-              className="font-display text-[7vw] leading-[1] text-cream"
+              className="font-display text-[7vw] leading-[1.1] pb-2 text-cream"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 2 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -61,14 +61,14 @@ export function Scene6() {
               Engagement
             </motion.h1>
           </div>
-          <div className="overflow-hidden">
+          <div>
             <motion.h1
-              className="font-display text-[7vw] leading-[1] text-purple italic"
+              className="font-display text-[7vw] leading-[1.1] pb-2 text-purple italic"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 3 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              reale, misurato.
+              reale, premiato.
             </motion.h1>
           </div>
         </div>

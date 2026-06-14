@@ -45,9 +45,9 @@ export function Scene2() {
         </motion.p>
 
         <div className="mb-10">
-          <div className="overflow-hidden mb-2">
+          <div className="mb-2">
             <motion.h1
-              className="font-display text-[7vw] leading-[1] text-cream"
+              className="font-display text-[7vw] leading-[1.1] pb-2 text-cream"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 2 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -55,9 +55,9 @@ export function Scene2() {
               La comunicazione
             </motion.h1>
           </div>
-          <div className="overflow-hidden">
+          <div>
             <motion.h1
-              className="font-display text-[7vw] leading-[1] text-purple italic"
+              className="font-display text-[7vw] leading-[1.1] pb-2 text-purple italic"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 3 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}

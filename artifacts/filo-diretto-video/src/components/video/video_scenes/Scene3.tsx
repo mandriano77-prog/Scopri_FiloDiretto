@@ -34,9 +34,9 @@ export function Scene3() {
         </motion.div>
 
         <div className="mb-10">
-          <div className="overflow-hidden mb-2">
+          <div className="mb-2">
             <motion.h1
-              className="font-display text-[6vw] leading-[1] text-cream"
+              className="font-display text-[6vw] leading-[1.1] pb-2 text-cream"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 2 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -44,9 +44,9 @@ export function Scene3() {
               Semplicità
             </motion.h1>
           </div>
-          <div className="overflow-hidden">
+          <div>
             <motion.h1
-              className="font-display text-[6vw] leading-[1] text-purple italic"
+              className="font-display text-[6vw] leading-[1.1] pb-2 text-purple italic"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 3 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -56,15 +56,23 @@ export function Scene3() {
           </div>
         </div>
 
-        <motion.p
-          className="text-cream/60 text-xl leading-relaxed max-w-sm font-light mb-12"
+        <motion.div
+          className="text-cream/60 text-xl leading-relaxed max-w-sm font-light mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          L'HR usa una dashboard chiara. Carica i dati, imposta le comunicazioni.
-          Il resto è pura automazione che lavora in background.
-        </motion.p>
+          <p className="mb-4">
+            Dal pannello personale tutto è sotto controllo. 
+            Carica i dati, imposta le automazioni.
+          </p>
+          <div className="flex items-center gap-3 text-purple-soft text-sm font-semibold tracking-wider uppercase">
+             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+             </svg>
+             100% a norma di privacy
+          </div>
+        </motion.div>
       </div>
 
       <motion.div
