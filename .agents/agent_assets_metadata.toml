@@ -17,7 +17,7 @@ title = "voiceover intro"
 id = "cyggqQ1eVkItCedLcIGMO"
 uri = "file://artifacts/filo-diretto-video/public/audio/vo_dashboard.mp3"
 type = "audio"
-title = "voiceover dashboard"
+title = "voiceover dashboard (no HR)"
 
 [[outputs]]
 id = "RWRRHj2CNM6aF-dfSE1TL"
