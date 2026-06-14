@@ -12,10 +12,10 @@ export function Scene6() {
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 800),
-      setTimeout(() => setPhase(3), 1800),
-      setTimeout(() => setPhase(4), 2800),
+      setTimeout(() => setPhase(1), 167),
+      setTimeout(() => setPhase(2), 667),
+      setTimeout(() => setPhase(3), 1500),
+      setTimeout(() => setPhase(4), 2333),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
@@ -35,7 +35,7 @@ export function Scene6() {
           className="w-full h-full object-cover object-center opacity-20 grayscale"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 10, ease: "linear" }}
+          transition={{ duration: 8.33, ease: "linear" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40" />
       </div>
@@ -79,7 +79,7 @@ export function Scene6() {
                key={i}
                initial={{ opacity: 0, y: 20 }}
                animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
-               transition={{ duration: 0.6, delay: i * 0.2 }}
+               transition={{ duration: 0.6, delay: i * 0.167 }}
              >
                 <div className="font-display text-7xl text-cream leading-none mb-4">{s.value}</div>
                 <div className="text-cream/50 text-sm tracking-widest uppercase font-medium">{s.label}</div>

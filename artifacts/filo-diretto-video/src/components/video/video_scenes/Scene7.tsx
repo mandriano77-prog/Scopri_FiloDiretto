@@ -7,9 +7,9 @@ export function Scene7() {
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 800),
-      setTimeout(() => setPhase(3), 1800),
+      setTimeout(() => setPhase(1), 167),
+      setTimeout(() => setPhase(2), 667),
+      setTimeout(() => setPhase(3), 1500),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
@@ -28,7 +28,7 @@ export function Scene7() {
            style={{ background: 'radial-gradient(circle, var(--color-purple) 0%, transparent 70%)' }}
            initial={{ scale: 0.8, opacity: 0 }}
            animate={phase >= 1 ? { scale: 1, opacity: 0.3 } : {}}
-           transition={{ duration: 3, ease: "easeOut" }}
+           transition={{ duration: 2.5, ease: "easeOut" }}
          />
       </div>
 

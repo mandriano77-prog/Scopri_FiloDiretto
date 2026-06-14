@@ -12,10 +12,10 @@ export function Scene5() {
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 800),
-      setTimeout(() => setPhase(3), 1800),
-      setTimeout(() => setPhase(4), 2800),
+      setTimeout(() => setPhase(1), 167),
+      setTimeout(() => setPhase(2), 667),
+      setTimeout(() => setPhase(3), 1500),
+      setTimeout(() => setPhase(4), 2333),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
@@ -52,7 +52,7 @@ export function Scene5() {
                       className="bg-white/10 backdrop-blur-xl rounded-2xl p-3.5 shadow-lg border border-white/10 relative overflow-hidden"
                       initial={{ opacity: 0, y: 20 }}
                       animate={phase >= 3 ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.5, delay: i * 0.2 + 0.2 }}
+                      transition={{ duration: 0.5, delay: i * 0.167 + 0.167 }}
                     >
                       <div className="flex justify-between items-center mb-1.5">
                          <div className="flex items-center gap-1.5">

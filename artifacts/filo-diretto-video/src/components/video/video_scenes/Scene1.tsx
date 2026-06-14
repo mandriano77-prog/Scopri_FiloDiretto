@@ -6,11 +6,11 @@ export function Scene1() {
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 800),
-      setTimeout(() => setPhase(3), 1800),
-      setTimeout(() => setPhase(4), 3000),
-      setTimeout(() => setPhase(5), 4500),
+      setTimeout(() => setPhase(1), 167),
+      setTimeout(() => setPhase(2), 667),
+      setTimeout(() => setPhase(3), 1500),
+      setTimeout(() => setPhase(4), 2500),
+      setTimeout(() => setPhase(5), 3750),
     ];
     return () => t.forEach(clearTimeout);
   }, []);

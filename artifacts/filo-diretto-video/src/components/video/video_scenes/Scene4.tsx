@@ -7,11 +7,11 @@ export function Scene4() {
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 800),
-      setTimeout(() => setPhase(3), 1800),
-      setTimeout(() => setPhase(4), 2800),
-      setTimeout(() => setPhase(5), 3800),
+      setTimeout(() => setPhase(1), 167),
+      setTimeout(() => setPhase(2), 667),
+      setTimeout(() => setPhase(3), 1500),
+      setTimeout(() => setPhase(4), 2333),
+      setTimeout(() => setPhase(5), 3167),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
@@ -39,7 +39,7 @@ export function Scene4() {
               style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.95), rgba(109,40,217,0.95))' }}
               initial={{ y: 50, opacity: 0 }}
               animate={phase >= 3 ? { y: 0, opacity: 1 } : {}}
-              transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.17 }}
             >
               {/* Fake Apple Wallet Pass Header */}
               <div className="flex justify-between items-start mb-6 relative z-10">

@@ -6,10 +6,10 @@ export function Scene2() {
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 800),
-      setTimeout(() => setPhase(3), 1800),
-      setTimeout(() => setPhase(4), 2800),
+      setTimeout(() => setPhase(1), 167),
+      setTimeout(() => setPhase(2), 667),
+      setTimeout(() => setPhase(3), 1500),
+      setTimeout(() => setPhase(4), 2333),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
@@ -29,7 +29,7 @@ export function Scene2() {
           className="w-full h-full object-cover object-center opacity-40 grayscale-[50%]"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 10, ease: "linear" }}
+          transition={{ duration: 8.33, ease: "linear" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-transparent" />
       </div>
