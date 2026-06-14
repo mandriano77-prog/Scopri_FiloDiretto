@@ -39,7 +39,7 @@ const tiers = [
     dipendenti: "801 – 2.500 dipendenti",
     price: "€5.990",
     period: "/ mese",
-    highlighted: true,
+    highlighted: false,
     includes: [
       "Setup €0 incluso",
       "Extra incluso: DPIA",
@@ -100,12 +100,6 @@ export default function Pricing() {
                   : "bg-background border-border/50 hover:border-border"
               }`}
             >
-              {tier.highlighted && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider py-1.5 px-4 rounded-full">
-                  Più scelto
-                </div>
-              )}
-              
               <div className="mb-8">
                 <h3 className="font-serif text-2xl mb-1">{tier.name}</h3>
                 <div className="text-sm text-muted-foreground mb-6">{tier.dipendenti}</div>
