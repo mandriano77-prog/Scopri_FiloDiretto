@@ -28,7 +28,7 @@ export function Scene5() {
       exit={{ opacity: 0, filter: 'blur(10px)' }}
       transition={{ duration: 0.6 }}
     >
-      <div className="absolute top-0 right-0 w-[50%] h-full flex justify-center py-20 pr-16 relative">
+      <div className="absolute top-0 right-0 w-[50%] h-full flex justify-center py-20 pr-16">
          <div className="relative w-full h-full flex items-center justify-center z-10">
             <div className="absolute inset-0 bg-purple/10 blur-[120px] rounded-full pointer-events-none" />
             
@@ -91,7 +91,7 @@ export function Scene5() {
         <div className="mb-10">
           <div className="mb-2">
             <motion.h1
-              className="font-display text-[7vw] leading-[1.1] pb-2 text-cream"
+              className="font-display text-[clamp(60px,7vw,96px)] leading-[1.1] pb-2 text-cream"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 2 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -101,7 +101,7 @@ export function Scene5() {
           </div>
           <div>
             <motion.h1
-              className="font-display text-[7vw] leading-[1.1] pb-2 text-purple italic"
+              className="font-display text-[clamp(60px,7vw,96px)] leading-[1.1] pb-2 text-purple italic"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 3 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}

@@ -38,7 +38,7 @@ export function Scene7() {
         animate={phase >= 2 ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h1 className="font-display text-[9vw] leading-[1] text-cream italic pr-8">
+        <h1 className="font-display text-[clamp(80px,9vw,122px)] leading-[1] text-cream italic pr-8">
           Filo Diretto
         </h1>
         <img src={faviconSvg} alt="Filo Diretto" className="w-28 h-28 mt-10" />

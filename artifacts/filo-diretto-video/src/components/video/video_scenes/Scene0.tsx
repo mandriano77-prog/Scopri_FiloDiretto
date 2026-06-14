@@ -34,7 +34,7 @@ export function Scene0() {
       <div className="mb-10">
         <div className="overflow-hidden mb-2">
           <motion.h1
-            className="font-display text-[7vw] leading-[1.05] pb-2 text-cream"
+            className="font-display text-[clamp(60px,7vw,96px)] leading-[1.05] pb-2 text-cream"
             initial={{ y: '100%' }}
             animate={phase >= 2 ? { y: '0%' } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -44,7 +44,7 @@ export function Scene0() {
         </div>
         <div className="overflow-hidden">
           <motion.h1
-            className="font-display text-[7vw] leading-[1.05] pb-2 text-purple italic"
+            className="font-display text-[clamp(60px,7vw,96px)] leading-[1.05] pb-2 text-purple italic"
             initial={{ y: '100%' }}
             animate={phase >= 3 ? { y: '0%' } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
