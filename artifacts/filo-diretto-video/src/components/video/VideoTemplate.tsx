@@ -11,14 +11,14 @@ import { Scene7 } from './video_scenes/Scene7';
 import { Scene0 } from './video_scenes/Scene0';
 
 export const SCENE_DURATIONS = {
-  context: 10000,
-  problem: 12000,
-  intro: 10000,
-  dashboard: 16000,
-  wallet: 14000,
-  push: 14000,
-  analytics: 12000,
-  outro: 10000,
+  context: 8400,
+  problem: 10000,
+  intro: 8400,
+  dashboard: 12000,
+  wallet: 11600,
+  push: 11600,
+  analytics: 10000,
+  outro: 8400,
 };
 
 const SCENE_COMPONENTS: Record<string, React.ComponentType> = {
