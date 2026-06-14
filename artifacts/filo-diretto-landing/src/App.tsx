@@ -4,6 +4,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
+import Privacy from "@/pages/privacy";
+import Cookie from "@/pages/cookie";
+import Termini from "@/pages/termini";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
@@ -12,6 +15,9 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/cookie" component={Cookie} />
+      <Route path="/termini" component={Termini} />
       <Route component={NotFound} />
     </Switch>
   );
