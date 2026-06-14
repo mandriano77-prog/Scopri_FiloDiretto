@@ -128,26 +128,6 @@ export default function VideoTemplate({
         <div className="mx-10 h-px bg-cream/10" />
       </div>
 
-      {/* Editorial chrome — bottom */}
-      <div className="absolute inset-x-0 bottom-0 z-30 pointer-events-none">
-        <div className="mx-10 h-px bg-cream/10" />
-        <div className="flex items-center justify-between px-10 py-5">
-          <span className="text-xs tracking-[0.3em] uppercase text-cream/45">
-            {sceneNo} <span className="text-cream/25">/ {totalNo}</span>
-            <span className="text-cream/25"> — </span>
-            {SCENE_LABELS[baseSceneKey]}
-          </span>
-          <div className="flex items-center gap-1.5">
-            {sceneKeys.map((k, i) => (
-              <span
-                key={k}
-                className={`h-1 rounded-full ${i === sceneIndex ? 'w-7 bg-purple' : 'w-3 bg-cream/20'}`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
       <audio
         ref={audioRef}
         src={`${import.meta.env.BASE_URL}audio/composite_audio.mp3`}
