@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --color-ink: #0A0A0A;
-  --color-ink-soft: #15121d;
-  --color-cream: #F4EDE2;
-  --color-purple: #8B5CF6;
-  --color-purple-bright: #7C3AED;
+  --color-ink: #0d0c0f;
+  --color-ink-soft: #1a1820;
+  --color-cream: #F9F6F0;
+  --color-purple: #7C3AED;
+  --color-purple-bright: #8B5CF6;
   --color-purple-soft: #A78BFA;
 
-  --font-display: 'Anton', sans-serif;
+  --font-display: 'Instrument Serif', serif;
   --font-body: 'Inter', sans-serif;
 }
 

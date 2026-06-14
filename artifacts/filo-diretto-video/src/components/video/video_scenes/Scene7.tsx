@@ -7,48 +7,51 @@ export function Scene7() {
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 1200),
-      setTimeout(() => setPhase(3), 2600),
+      setTimeout(() => setPhase(1), 500),
+      setTimeout(() => setPhase(2), 2000),
+      setTimeout(() => setPhase(3), 4000),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
 
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col items-center justify-center text-center px-20 pt-28 pb-28"
+      className="absolute inset-0 flex flex-col items-center justify-center text-center px-20 py-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.6 }}
+      exit={{ opacity: 0, filter: 'blur(10px)' }}
+      transition={{ duration: 1 }}
     >
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+         <motion.div 
+           className="w-[800px] h-[800px] rounded-full blur-[120px] opacity-20"
+           style={{ background: 'radial-gradient(circle, var(--color-purple) 0%, transparent 70%)' }}
+           initial={{ scale: 0.8, opacity: 0 }}
+           animate={phase >= 1 ? { scale: 1, opacity: 0.3 } : {}}
+           transition={{ duration: 4, ease: "easeOut" }}
+         />
+      </div>
+
       <motion.div
-        className="flex items-center gap-5 mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      >
-        <img src={faviconSvg} alt="" className="w-14 h-14" />
-        <h1 className="font-display text-[7vw] leading-none tracking-tight text-cream">Filo Diretto</h1>
-      </motion.div>
-
-      <motion.p
-        className="text-cream/65 text-2xl"
-        initial={{ opacity: 0, y: 16 }}
+        className="relative z-10 flex flex-col items-center"
+        initial={{ opacity: 0, y: 40 }}
         animate={phase >= 2 ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        Il canale diretto tra HR e ogni dipendente.
-      </motion.p>
-
-      <motion.p
-        className="text-purple text-lg font-medium tracking-wide mt-6"
-        initial={{ opacity: 0, y: 16 }}
-        animate={phase >= 3 ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-      >
-        Senza app. Senza intranet. Nel wallet che hanno già tutti.
-      </motion.p>
+        <img src={faviconSvg} alt="Filo Diretto" className="w-16 h-16 mb-8" />
+        <h1 className="font-display text-[9vw] leading-[1] text-cream italic pr-8">
+          Filo Diretto
+        </h1>
+        
+        <motion.p
+          className="text-cream/50 text-xl tracking-[0.2em] uppercase mt-12 font-medium"
+          initial={{ opacity: 0 }}
+          animate={phase >= 3 ? { opacity: 1 } : {}}
+          transition={{ duration: 1 }}
+        >
+          Il canale che mancava
+        </motion.p>
+      </motion.div>
     </motion.div>
   );
 }

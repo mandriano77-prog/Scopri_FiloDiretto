@@ -2,92 +2,91 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const STATS = [
-  { v: '95%+', l: 'Lettura push' },
-  { v: 'Zero', l: 'App da scaricare' },
-  { v: '5×', l: 'Risposte vs email' },
+  { value: '98%', label: 'Tasso di installazione' },
+  { value: '4x', label: 'Engagement in più' },
+  { value: '100%', label: 'Copertura aziendale' },
 ];
-
-const AUTOS = ['Compleanni', 'Anniversari', 'Reminder', 'Quiz compliance', 'Survey lampo', 'Onboarding'];
 
 export function Scene6() {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 200),
-      setTimeout(() => setPhase(2), 900),
-      setTimeout(() => setPhase(3), 2400),
-      setTimeout(() => setPhase(4), 3600),
+      setTimeout(() => setPhase(1), 500),
+      setTimeout(() => setPhase(2), 1500),
+      setTimeout(() => setPhase(3), 3000),
+      setTimeout(() => setPhase(4), 4500),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
 
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col justify-center px-20 pt-28 pb-28"
+      className="absolute inset-0 flex flex-col justify-center px-24 py-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, filter: 'blur(8px)' }}
-      transition={{ duration: 0.6 }}
+      exit={{ opacity: 0, filter: 'blur(10px)' }}
+      transition={{ duration: 1 }}
     >
-      <motion.p
-        className="text-purple text-sm font-semibold tracking-[0.35em] uppercase mb-6"
-        initial={{ opacity: 0, y: 16 }}
-        animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5 }}
-      >
-        05 — I risultati
-      </motion.p>
-
-      <div className="mb-14">
-        <div className="overflow-hidden">
-          <motion.h2
-            className="font-display text-[6vw] leading-[0.92] tracking-tight text-cream"
-            initial={{ y: '110%' }}
-            animate={phase >= 1 ? { y: '0%' } : {}}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          >
-            Engagement reale. <span className="text-purple">Tutto misurato.</span>
-          </motion.h2>
-        </div>
+      <div className="absolute top-0 left-0 w-full h-full">
+        <motion.img
+          src={`${import.meta.env.BASE_URL}images/office_team.jpg`}
+          alt="Happy team"
+          className="w-full h-full object-cover object-center opacity-20 grayscale"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 10, ease: "linear" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40" />
       </div>
 
-      <div className="grid grid-cols-3 gap-12 max-w-5xl">
-        {STATS.map((s, i) => (
-          <motion.div
-            key={s.l}
-            className="border-t border-cream/15 pt-6"
-            initial={{ opacity: 0, y: 28 }}
-            animate={phase >= 2 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="font-display text-8xl text-cream leading-none">{s.v}</div>
-            <div className="text-cream/50 text-sm uppercase tracking-widest mt-4">{s.l}</div>
-          </motion.div>
-        ))}
-      </div>
+      <div className="relative z-10 w-full pt-10">
+        <motion.p
+          className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          06 — I Risultati
+        </motion.p>
 
-      <motion.div
-        className="mt-16"
-        initial={{ opacity: 0 }}
-        animate={phase >= 3 ? { opacity: 1 } : {}}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="text-cream/40 text-xs uppercase tracking-[0.3em] mb-4">Automazioni attive</div>
-        <div className="flex flex-wrap gap-3">
-          {AUTOS.map((a, i) => (
-            <motion.span
-              key={a}
-              className="px-4 py-2 rounded-full border border-cream/15 text-cream/80 text-base"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={phase >= 3 ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.35, delay: i * 0.07 }}
+        <div className="mb-16">
+          <div className="overflow-hidden mb-2">
+            <motion.h1
+              className="font-display text-[7vw] leading-[1] text-cream"
+              initial={{ y: '100%', rotateX: 20 }}
+              animate={phase >= 2 ? { y: '0%', rotateX: 0 } : {}}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              {a}
-            </motion.span>
-          ))}
+              Engagement
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden">
+            <motion.h1
+              className="font-display text-[7vw] leading-[1] text-purple italic"
+              initial={{ y: '100%', rotateX: 20 }}
+              animate={phase >= 3 ? { y: '0%', rotateX: 0 } : {}}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              reale, misurato.
+            </motion.h1>
+          </div>
         </div>
-      </motion.div>
+
+        <div className="flex gap-20">
+           {STATS.map((s, i) => (
+             <motion.div
+               key={i}
+               initial={{ opacity: 0, y: 20 }}
+               animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
+               transition={{ duration: 0.8, delay: i * 0.2 }}
+             >
+                <div className="font-display text-7xl text-cream leading-none mb-4">{s.value}</div>
+                <div className="text-cream/50 text-sm tracking-widest uppercase font-medium">{s.label}</div>
+             </motion.div>
+           ))}
+        </div>
+      </div>
     </motion.div>
   );
 }

@@ -48,3 +48,27 @@ id = "6ba6hagqoX2fKGc9YDbNw"
 uri = "file://artifacts/filo-diretto-video/public/audio/bg_music.mp3"
 type = "audio"
 title = "background music"
+
+[[outputs]]
+id = "3wCEW9nOj5eZD5RpbFQuE"
+uri = "file://artifacts/filo-diretto-video/public/images/frustrated_hr.jpg"
+type = "image"
+title = "frustrated office worker at desk in front of laptop, modern office"
+
+[[outputs]]
+id = "43_iHyTc4xFgr2HF7IxKc"
+uri = "file://artifacts/filo-diretto-video/public/images/happy_employee.jpg"
+type = "image"
+title = "smiling professional employee looking at smartphone in bright modern office"
+
+[[outputs]]
+id = "vhHPckdWI438CIKo_gtRG"
+uri = "file://artifacts/filo-diretto-video/public/images/hand_phone.jpg"
+type = "image"
+title = "close up of hands holding modern smartphone on bright background"
+
+[[outputs]]
+id = "uuTyTeFikku_cDU2ZLsMC"
+uri = "file://artifacts/filo-diretto-video/public/images/office_team.jpg"
+type = "image"
+title = "diverse team having a casual meeting in bright modern office"
