@@ -84,3 +84,9 @@ id = "aN-uTn2IJrgHp8J8tVSZI"
 uri = "file://artifacts/filo-diretto-video/public/audio/vo_push_new.mp3"
 type = "audio"
 title = "push vo programmabili"
+
+[[outputs]]
+id = "2Ud22XMgqP77eNheQLHJZ"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_context_new.mp3"
+type = "audio"
+title = "context vo trimmed"
