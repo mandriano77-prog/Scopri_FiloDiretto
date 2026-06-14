@@ -97,10 +97,14 @@ export default function Home() {
         <section id="vantaggi" className="py-28 px-6 bg-card border-y border-border/20">
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-16">
-              <h2 className="text-5xl md:text-6xl leading-none mb-6">
-                L'email è morta. <span className="text-muted-foreground italic font-serif">Viva il Wallet.</span>
+              <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
+                Il problema
+              </div>
+              <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-7">
+                L'email è morta.<br />
+                <span className="text-primary italic">Viva il Wallet.</span>
               </h2>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed font-light">
                 Le comunicazioni tradizionali non raggiungono i dipendenti frontline: le email vengono ignorate, le app aziendali non vengono scaricate. Il Wallet, invece, ce l'hanno già tutti.
               </p>
             </div>
@@ -156,20 +160,41 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-background border-t border-border/20 py-12 px-6 text-center text-muted-foreground text-sm">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
-              <span className="font-serif italic text-xs text-foreground leading-none pr-0.5">fd</span>
+      <footer className="bg-background border-t border-border/20 py-14 px-6 text-sm text-muted-foreground">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
+                <span className="font-serif italic text-sm text-primary-foreground leading-none pr-0.5">fd</span>
+              </div>
+              <span className="font-serif text-xl text-foreground">Filo Diretto</span>
             </div>
-            <span className="font-medium">Filo Diretto S.r.l.</span>
+            <p className="leading-relaxed max-w-xs">
+              La linea diretta con ogni dipendente, direttamente nel Wallet dello smartphone.
+            </p>
           </div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-foreground">Privacy Policy</a>
-            <a href="#" className="hover:text-foreground">Cookie Policy</a>
-            <a href="#" className="hover:text-foreground">Termini di Servizio</a>
+
+          <div className="space-y-1.5">
+            <div className="text-foreground font-medium mb-2">Precise Advertising S.r.l.</div>
+            <div>Via Vittoria Colonna 54</div>
+            <div>20149 Milano (MI)</div>
+            <div>P.IVA 13419740967</div>
+            <div>SDI M5UXCR1 · REA 2722182</div>
           </div>
-          <div>&copy; {new Date().getFullYear()} Tutti i diritti riservati.</div>
+
+          <div className="space-y-4">
+            <a href="mailto:amministrazione@preciseadvertising.tech" className="block hover:text-foreground transition-colors">
+              amministrazione@preciseadvertising.tech
+            </a>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <a href="#" className="hover:text-foreground">Privacy Policy</a>
+              <a href="#" className="hover:text-foreground">Cookie Policy</a>
+              <a href="#" className="hover:text-foreground">Termini di Servizio</a>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-border/10 text-xs">
+          &copy; {new Date().getFullYear()} Precise Advertising S.r.l. — Tutti i diritti riservati.
         </div>
       </footer>
     </div>
