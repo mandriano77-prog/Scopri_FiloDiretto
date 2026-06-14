@@ -1,16 +1,15 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import dashboardPng from '@assets/filo_ref/dashboard.png';
 
 export function Scene3() {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 500),
-      setTimeout(() => setPhase(2), 2000),
-      setTimeout(() => setPhase(3), 4000),
-      setTimeout(() => setPhase(4), 8000),
+      setTimeout(() => setPhase(1), 200),
+      setTimeout(() => setPhase(2), 800),
+      setTimeout(() => setPhase(3), 2000),
+      setTimeout(() => setPhase(4), 3500),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
@@ -21,14 +20,14 @@ export function Scene3() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, filter: 'blur(10px)' }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.6 }}
     >
       <div className="w-[35%] z-10 flex flex-col justify-center h-full">
         <motion.div
           className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           03 — Come funziona
         </motion.div>
@@ -39,7 +38,7 @@ export function Scene3() {
               className="font-display text-[6vw] leading-[1.1] pb-2 text-cream"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 2 ? { y: '0%', rotateX: 0 } : {}}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               Semplicità
             </motion.h1>
@@ -49,7 +48,7 @@ export function Scene3() {
               className="font-display text-[6vw] leading-[1.1] pb-2 text-purple italic"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 3 ? { y: '0%', rotateX: 0 } : {}}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               invisibile.
             </motion.h1>
@@ -60,7 +59,7 @@ export function Scene3() {
           className="text-cream/60 text-xl leading-relaxed max-w-sm font-light mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           <p className="mb-4">
             Dal pannello personale tutto è sotto controllo. 
@@ -76,25 +75,94 @@ export function Scene3() {
       </div>
 
       <motion.div
-        className="w-[55%] h-full relative"
+        className="w-[60%] h-full relative"
         initial={{ opacity: 0, x: 40, scale: 0.95 }}
         animate={phase >= 2 ? { opacity: 1, x: 0, scale: 1 } : {}}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="absolute inset-0 bg-purple/5 blur-[100px] rounded-full" />
+        <div className="absolute inset-0 bg-purple/10 blur-[100px] rounded-full" />
         <div className="relative h-full flex flex-col justify-center">
-          <div className="rounded-xl overflow-hidden border border-cream/10 shadow-2xl bg-ink-soft/80 backdrop-blur-sm">
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-cream/5 bg-ink/50">
+          <div className="rounded-2xl overflow-hidden border border-cream/10 shadow-2xl bg-ink-soft flex flex-col h-[500px]">
+            {/* Browser Chrome */}
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-cream/5 bg-ink">
               <span className="w-3 h-3 rounded-full bg-red-500/20" />
               <span className="w-3 h-3 rounded-full bg-yellow-500/20" />
               <span className="w-3 h-3 rounded-full bg-green-500/20" />
-              <span className="ml-3 text-cream/30 text-xs font-mono">dashboard.filodiretto.it</span>
+              <div className="ml-4 flex-1 bg-white/5 rounded-md px-3 py-1 text-center">
+                <span className="text-cream/30 text-xs font-mono">dashboard.filodiretto.it</span>
+              </div>
             </div>
-            <img
-              src={dashboardPng}
-              alt="Dashboard HR"
-              className="w-full block object-cover mix-blend-luminosity grayscale-[30%] opacity-90"
-            />
+            
+            {/* Dashboard Content */}
+            <div className="flex flex-1 overflow-hidden">
+              {/* Sidebar */}
+              <div className="w-48 border-r border-cream/5 p-4 flex flex-col gap-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-6 h-6 rounded bg-purple flex items-center justify-center">
+                    <div className="w-2 h-2 bg-cream rounded-sm" />
+                  </div>
+                  <span className="text-cream text-sm font-bold tracking-widest uppercase">Filo Diretto</span>
+                </div>
+                
+                <div className="space-y-1">
+                  <div className="px-3 py-2 bg-purple/10 text-purple text-xs font-medium rounded-lg">Panoramica</div>
+                  <div className="px-3 py-2 text-cream/40 text-xs font-medium rounded-lg">Comunicazioni</div>
+                  <div className="px-3 py-2 text-cream/40 text-xs font-medium rounded-lg">Dipendenti</div>
+                  <div className="px-3 py-2 text-cream/40 text-xs font-medium rounded-lg">Automazioni</div>
+                </div>
+              </div>
+
+              {/* Main Area */}
+              <div className="flex-1 p-6 bg-ink-soft/50">
+                <div className="flex gap-4 mb-6">
+                  {/* Metric 1 */}
+                  <div className="flex-1 bg-white/5 border border-white/5 rounded-xl p-4">
+                    <div className="text-cream/40 text-[10px] uppercase tracking-wider mb-1">Tasso di Lettura</div>
+                    <div className="text-cream text-2xl font-light">98.2%</div>
+                  </div>
+                  {/* Metric 2 */}
+                  <div className="flex-1 bg-white/5 border border-white/5 rounded-xl p-4">
+                    <div className="text-cream/40 text-[10px] uppercase tracking-wider mb-1">Utenti Attivi</div>
+                    <div className="text-cream text-2xl font-light">1,204</div>
+                  </div>
+                  {/* Metric 3 */}
+                  <div className="flex-1 bg-white/5 border border-white/5 rounded-xl p-4">
+                    <div className="text-cream/40 text-[10px] uppercase tracking-wider mb-1">Push Inviate</div>
+                    <div className="text-cream text-2xl font-light">45K</div>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 border border-white/5 rounded-xl p-5">
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="text-cream text-sm font-medium">Ultime Comunicazioni</div>
+                    <div className="text-purple text-xs font-medium bg-purple/10 px-3 py-1 rounded-full">Nuova</div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                      <div>
+                        <div className="text-cream text-sm">Chiusura uffici 15/08</div>
+                        <div className="text-cream/40 text-[10px]">Inviato a Tutti • 2h fa</div>
+                      </div>
+                      <div className="text-green-400 text-xs bg-green-400/10 px-2 py-1 rounded">Consegnato</div>
+                    </div>
+                    <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                      <div>
+                        <div className="text-cream text-sm">Aggiornamento policy Smart Working</div>
+                        <div className="text-cream/40 text-[10px]">Inviato a HQ Milano • 1gg fa</div>
+                      </div>
+                      <div className="text-green-400 text-xs bg-green-400/10 px-2 py-1 rounded">Consegnato</div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-cream text-sm">Manutenzione server IT</div>
+                        <div className="text-cream/40 text-[10px]">Inviato a Tech Dept • 2gg fa</div>
+                      </div>
+                      <div className="text-green-400 text-xs bg-green-400/10 px-2 py-1 rounded">Consegnato</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>

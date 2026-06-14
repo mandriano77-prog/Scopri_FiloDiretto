@@ -11,10 +11,10 @@ export function Scene5() {
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 500),
-      setTimeout(() => setPhase(2), 1500),
-      setTimeout(() => setPhase(3), 3000),
-      setTimeout(() => setPhase(4), 4500),
+      setTimeout(() => setPhase(1), 200),
+      setTimeout(() => setPhase(2), 800),
+      setTimeout(() => setPhase(3), 1800),
+      setTimeout(() => setPhase(4), 2800),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
@@ -25,7 +25,7 @@ export function Scene5() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, filter: 'blur(10px)' }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.6 }}
     >
       <div className="absolute top-0 right-0 w-[50%] h-full flex justify-end">
          <div className="relative w-full h-full flex items-center justify-center">
@@ -34,7 +34,7 @@ export function Scene5() {
               className="relative w-[320px] rounded-[2.5rem] bg-ink/90 border border-white/10 shadow-2xl backdrop-blur-md p-4 overflow-hidden"
               initial={{ y: 60, opacity: 0 }}
               animate={phase >= 2 ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
                <div className="text-center pt-8 pb-12">
                  <div className="text-cream/50 text-xs uppercase tracking-widest mb-2">Martedì 14</div>
@@ -71,7 +71,7 @@ export function Scene5() {
           className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           05 — Le notifiche
         </motion.p>
@@ -82,7 +82,7 @@ export function Scene5() {
               className="font-display text-[7vw] leading-[1.1] pb-2 text-cream"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 2 ? { y: '0%', rotateX: 0 } : {}}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               Impossibili
             </motion.h1>
@@ -92,7 +92,7 @@ export function Scene5() {
               className="font-display text-[7vw] leading-[1.1] pb-2 text-purple italic"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 3 ? { y: '0%', rotateX: 0 } : {}}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               da ignorare.
             </motion.h1>
@@ -103,7 +103,7 @@ export function Scene5() {
           className="text-cream/60 text-xl leading-relaxed max-w-sm font-light mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           Le comunicazioni importanti appaiono direttamente sulla schermata di blocco.
           Il tasso di lettura supera il 95%.

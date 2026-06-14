@@ -6,10 +6,10 @@ export function Scene2() {
 
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase(1), 500),
-      setTimeout(() => setPhase(2), 1500),
-      setTimeout(() => setPhase(3), 3000),
-      setTimeout(() => setPhase(4), 4500),
+      setTimeout(() => setPhase(1), 200),
+      setTimeout(() => setPhase(2), 800),
+      setTimeout(() => setPhase(3), 1800),
+      setTimeout(() => setPhase(4), 2800),
     ];
     return () => t.forEach(clearTimeout);
   }, []);
@@ -20,7 +20,7 @@ export function Scene2() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, filter: 'blur(10px)' }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.6 }}
     >
       <div className="absolute top-0 right-0 w-[60%] h-full">
         <motion.img
@@ -39,7 +39,7 @@ export function Scene2() {
           className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           02 — Il contatto
         </motion.p>
@@ -50,7 +50,7 @@ export function Scene2() {
               className="font-display text-[7vw] leading-[1.1] pb-2 text-cream"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 2 ? { y: '0%', rotateX: 0 } : {}}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               La comunicazione
             </motion.h1>
@@ -60,7 +60,7 @@ export function Scene2() {
               className="font-display text-[7vw] leading-[1.1] pb-2 text-purple italic"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 3 ? { y: '0%', rotateX: 0 } : {}}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               che arriva.
             </motion.h1>
@@ -71,7 +71,7 @@ export function Scene2() {
           className="text-cream/80 text-2xl leading-relaxed max-w-lg font-light"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           Niente app da scaricare. Niente portali in cui fare login. 
           Un canale diretto, umano e immediato.
