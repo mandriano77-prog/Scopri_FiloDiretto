@@ -124,9 +124,6 @@ export default function VideoTemplate({
             <span className="w-2 h-2 rounded-full bg-purple" />
             <span className="text-xs font-bold tracking-[0.38em] uppercase text-cream">Filo Diretto</span>
           </div>
-          <span className="text-xs tracking-[0.3em] uppercase text-cream/45">
-            Comunicazione Interna · 2026
-          </span>
         </div>
         <div className="mx-10 h-px bg-cream/10" />
       </div>
