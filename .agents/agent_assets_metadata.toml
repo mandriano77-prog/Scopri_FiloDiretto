@@ -78,3 +78,9 @@ id = "Kvb38_UFyj7rBqK4APNbj"
 uri = "file://artifacts/filo-diretto-video/public/audio/vo_context.mp3"
 type = "audio"
 title = "vo context risorse umane"
+
+[[outputs]]
+id = "aN-uTn2IJrgHp8J8tVSZI"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_push_new.mp3"
+type = "audio"
+title = "push vo programmabili"
