@@ -1,0 +1,1 @@
+- [video-js scaffold typecheck quirk](video-js-scaffold-typecheck.md) — fresh video-js typecheck fails in untouched scaffold files (hooks.ts/animations.ts/main.tsx); ignore, trust validate-recording.sh + clean logs.

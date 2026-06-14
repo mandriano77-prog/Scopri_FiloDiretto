@@ -1,0 +1,50 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "xZYYAGMB73M85fbl0iSsj"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_problem.mp3"
+type = "audio"
+title = "voiceover problem"
+
+[[outputs]]
+id = "3Y4hPEwM-S9AwEK2RjrW5"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_intro.mp3"
+type = "audio"
+title = "voiceover intro"
+
+[[outputs]]
+id = "cyggqQ1eVkItCedLcIGMO"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_dashboard.mp3"
+type = "audio"
+title = "voiceover dashboard"
+
+[[outputs]]
+id = "RWRRHj2CNM6aF-dfSE1TL"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_wallet.mp3"
+type = "audio"
+title = "voiceover wallet"
+
+[[outputs]]
+id = "TvaE03zmhd9fauq6WeKYt"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_push.mp3"
+type = "audio"
+title = "voiceover push"
+
+[[outputs]]
+id = "XW2rkiqExWGc4r2shUh0w"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_analytics.mp3"
+type = "audio"
+title = "voiceover analytics"
+
+[[outputs]]
+id = "7xMGq0zfkJ0N2ohj2b-XI"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_outro.mp3"
+type = "audio"
+title = "voiceover outro"
+
+[[outputs]]
+id = "6ba6hagqoX2fKGc9YDbNw"
+uri = "file://artifacts/filo-diretto-video/public/audio/bg_music.mp3"
+type = "audio"
+title = "background music"
