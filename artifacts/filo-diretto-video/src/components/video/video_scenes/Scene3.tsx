@@ -23,7 +23,7 @@ export function Scene3() {
       exit={{ opacity: 0, filter: 'blur(10px)' }}
       transition={{ duration: 1 }}
     >
-      <div className="w-[35%] z-10 flex flex-col justify-center h-full pt-10">
+      <div className="w-[35%] z-10 flex flex-col justify-center h-full">
         <motion.div
           className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}

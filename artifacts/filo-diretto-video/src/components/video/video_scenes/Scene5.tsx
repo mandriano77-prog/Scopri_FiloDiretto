@@ -66,7 +66,7 @@ export function Scene5() {
          </div>
       </div>
 
-      <div className="relative z-10 w-[50%] pt-10">
+      <div className="relative z-10 w-[50%]">
         <motion.p
           className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}

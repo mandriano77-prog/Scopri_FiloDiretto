@@ -40,7 +40,7 @@ export function Scene6() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40" />
       </div>
 
-      <div className="relative z-10 w-full pt-10">
+      <div className="relative z-10 w-full">
         <motion.p
           className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}

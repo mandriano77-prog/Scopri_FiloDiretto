@@ -17,13 +17,13 @@ export function Scene1() {
 
   return (
     <motion.div
-      className="absolute inset-0 flex items-center justify-between px-24 py-20"
+      className="absolute inset-0 flex items-center justify-between px-24 pt-20 pb-28"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, filter: 'blur(10px)' }}
       transition={{ duration: 1 }}
     >
-      <div className="w-[45%] z-10 flex flex-col justify-center h-full pt-10">
+      <div className="w-[45%] z-10 flex flex-col justify-center h-full">
         <motion.div
           className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}

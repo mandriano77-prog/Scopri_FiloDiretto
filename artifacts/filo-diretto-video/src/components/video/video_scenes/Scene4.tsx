@@ -38,7 +38,7 @@ export function Scene4() {
           <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
           
           <motion.div
-            className="absolute right-[12%] top-[55%] -translate-y-1/2 w-[220px] rounded-2xl p-4 shadow-2xl overflow-hidden backdrop-blur-xl border border-white/10 z-10"
+            className="absolute right-[16%] top-1/2 -translate-y-1/2 w-[200px] rounded-2xl p-4 shadow-2xl overflow-hidden backdrop-blur-xl border border-white/10 z-10"
             style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.95), rgba(109,40,217,0.95))' }}
             initial={{ y: '60%', opacity: 0, rotate: 5 }}
             animate={phase >= 3 ? { y: '-50%', opacity: 1, rotate: 0 } : {}}
@@ -53,7 +53,7 @@ export function Scene4() {
             <div className="text-cream text-xl font-display leading-none mb-1">Giulia Bianchi</div>
             <div className="text-cream/60 text-[11px] mb-4">Marketing Team</div>
             
-            <div className="w-full aspect-square max-h-28 mx-auto bg-white rounded-lg p-2 flex items-center justify-center relative overflow-hidden mb-2">
+            <div className="w-full aspect-square max-h-24 mx-auto bg-white rounded-lg p-2 flex items-center justify-center relative overflow-hidden mb-2">
                <svg className="w-full h-full text-ink" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M3 3h8v8H3zM5 5v4h4V5zM13 3h8v8h-8zM15 5v4h4V5zM3 13h8v8H3zM5 15v4h4v-4zM13 13h2v2h-2zM15 13h2v2h-2zM17 13h2v2h-2zM19 13h2v2h-2zM13 15h2v2h-2zM17 15h2v2h-2zM13 17h2v2h-2zM15 17h2v2h-2zM19 17h2v2h-2zM15 19h2v2h-2zM17 19h2v2h-2zM19 19h2v2h-2z" />
                </svg>
@@ -62,7 +62,7 @@ export function Scene4() {
           </motion.div>
 
           <motion.div
-            className="absolute right-[30%] top-[65%] bg-cream text-ink px-4 py-3 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] flex items-center gap-3 border border-white/50 z-20"
+            className="absolute right-[32%] top-[70%] bg-cream text-ink px-4 py-3 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] flex items-center gap-3 border border-white/50 z-20"
             initial={{ opacity: 0, y: 20, scale: 0.8 }}
             animate={phase >= 5 ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{ type: 'spring', stiffness: 150, damping: 15 }}
@@ -81,7 +81,7 @@ export function Scene4() {
         </motion.div>
       </div>
 
-      <div className="relative z-10 w-[55%] pt-10 pr-12">
+      <div className="relative z-10 w-[55%] pr-12">
         <motion.p
           className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}
