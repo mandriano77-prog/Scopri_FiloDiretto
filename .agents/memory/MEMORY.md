@@ -1,2 +1,3 @@
 - [video-js scaffold typecheck quirk](video-js-scaffold-typecheck.md) — fresh video-js typecheck fails in untouched scaffold files (hooks.ts/animations.ts/main.tsx); ignore, trust validate-recording.sh + clean logs.
 - [Filo Diretto / HR2Wallet promo video](filo-diretto-video.md) — editorial brand (black/cream/purple, Anton, no teal); keep wordmark 'Filo Diretto'; SCENE_DURATIONS are locked to the pre-mixed composite audio.
+- [OpenAPI enum in DESIGN forms](openapi-enum-frontend-integration.md) — DESIGN subagents mis-wire OpenAPI string enums (z.nativeEnum + broken deep import); fix with a literal z.enum.

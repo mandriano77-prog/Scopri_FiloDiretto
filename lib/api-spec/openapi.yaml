@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: leads
+    description: Lead capture operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,31 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /leads:
+    post:
+      operationId: createLead
+      tags: [leads]
+      summary: Submit a sales/demo lead
+      description: Captures a lead from the marketing landing page.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeadInput"
+      responses:
+        "201":
+          description: Lead created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Lead"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +60,72 @@ components:
           type: string
       required:
         - status
-
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+    LeadInput:
+      type: object
+      required: [name, email, company, companySize]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          description: Full name of the contact
+        email:
+          type: string
+          format: email
+          description: Work email address
+        company:
+          type: string
+          minLength: 1
+          description: Company name
+        companySize:
+          type: string
+          description: Employee headcount band
+          enum:
+            - "1-49"
+            - "50-300"
+            - "301-800"
+            - "801-2500"
+            - "2500+"
+        role:
+          type: string
+          description: Job role / title of the contact
+        phone:
+          type: string
+          description: Phone number
+        plan:
+          type: string
+          description: Plan the lead is interested in
+        message:
+          type: string
+          description: Free-form message
+    Lead:
+      type: object
+      required: [id, name, email, company, companySize, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        company:
+          type: string
+        companySize:
+          type: string
+        role:
+          type: ["string", "null"]
+        phone:
+          type: ["string", "null"]
+        plan:
+          type: ["string", "null"]
+        message:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
