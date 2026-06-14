@@ -29,7 +29,7 @@ export function Scene3() {
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          03 — Come funziona
+          04 — Come funziona
         </motion.div>
 
         <div className="mb-10">

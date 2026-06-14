@@ -85,7 +85,7 @@ export function Scene5() {
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          05 — Le notifiche
+          06 — Le notifiche
         </motion.p>
 
         <div className="mb-10">

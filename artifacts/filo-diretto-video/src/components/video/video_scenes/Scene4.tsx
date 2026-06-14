@@ -94,7 +94,7 @@ export function Scene4() {
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          04 — Il Pass
+          05 — Il Pass
         </motion.p>
 
         <div className="mb-10">

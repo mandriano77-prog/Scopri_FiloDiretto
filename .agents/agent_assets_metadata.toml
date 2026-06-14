@@ -72,3 +72,9 @@ id = "uuTyTeFikku_cDU2ZLsMC"
 uri = "file://artifacts/filo-diretto-video/public/images/office_team.jpg"
 type = "image"
 title = "diverse team having a casual meeting in bright modern office"
+
+[[outputs]]
+id = "Kvb38_UFyj7rBqK4APNbj"
+uri = "file://artifacts/filo-diretto-video/public/audio/vo_context.mp3"
+type = "audio"
+title = "vo context risorse umane"

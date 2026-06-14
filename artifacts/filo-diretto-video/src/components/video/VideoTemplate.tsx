@@ -8,8 +8,10 @@ import { Scene4 } from './video_scenes/Scene4';
 import { Scene5 } from './video_scenes/Scene5';
 import { Scene6 } from './video_scenes/Scene6';
 import { Scene7 } from './video_scenes/Scene7';
+import { Scene0 } from './video_scenes/Scene0';
 
 export const SCENE_DURATIONS = {
+  context: 10000,
   problem: 12000,
   intro: 10000,
   dashboard: 16000,
@@ -20,6 +22,7 @@ export const SCENE_DURATIONS = {
 };
 
 const SCENE_COMPONENTS: Record<string, React.ComponentType> = {
+  context: Scene0,
   problem: Scene1,
   intro: Scene2,
   dashboard: Scene3,
@@ -30,6 +33,7 @@ const SCENE_COMPONENTS: Record<string, React.ComponentType> = {
 };
 
 const SCENE_LABELS: Record<string, string> = {
+  context: 'Le persone',
   problem: 'Il problema',
   intro: 'La soluzione',
   dashboard: 'Come funziona',

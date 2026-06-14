@@ -47,7 +47,7 @@ export function Scene6() {
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          06 — I Risultati
+          07 — I Risultati
         </motion.p>
 
         <div className="mb-16">

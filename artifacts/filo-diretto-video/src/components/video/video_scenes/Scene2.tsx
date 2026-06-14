@@ -41,7 +41,7 @@ export function Scene2() {
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          02 — Il contatto
+          03 — Il contatto
         </motion.p>
 
         <div className="mb-10">

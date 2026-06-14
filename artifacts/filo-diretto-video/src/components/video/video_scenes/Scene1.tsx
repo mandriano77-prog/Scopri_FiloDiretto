@@ -30,7 +30,7 @@ export function Scene1() {
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          01 — La disconnessione
+          02 — La disconnessione
         </motion.div>
 
         <div className="mb-10 w-full">
