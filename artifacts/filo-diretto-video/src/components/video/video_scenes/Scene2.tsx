@@ -6,56 +6,74 @@ export function Scene2() {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
-    const timers = [
-      setTimeout(() => setPhase(1), 500),
-      setTimeout(() => setPhase(2), 2000),
-      setTimeout(() => setPhase(3), 4000),
-      setTimeout(() => setPhase(4), 6000),
+    const t = [
+      setTimeout(() => setPhase(1), 200),
+      setTimeout(() => setPhase(2), 800),
+      setTimeout(() => setPhase(3), 2200),
+      setTimeout(() => setPhase(4), 3600),
     ];
-    return () => timers.forEach(t => clearTimeout(t));
+    return () => t.forEach(clearTimeout);
   }, []);
 
   return (
-    <motion.div 
-      className="absolute inset-0 flex flex-col items-center justify-center"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, y: "-100vh" }}
-      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+    <motion.div
+      className="absolute inset-0 flex flex-col items-center justify-center text-center px-20 pt-28 pb-28"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, y: -60, filter: 'blur(8px)' }}
+      transition={{ duration: 0.6 }}
     >
-      <div className="relative z-10 flex flex-col items-center text-center">
-        <motion.div
-          className="w-32 h-32 mb-8 relative"
-          initial={{ opacity: 0, scale: 0, rotate: -90 }}
-          animate={phase >= 1 ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0, rotate: -90 }}
-          transition={{ type: "spring", stiffness: 200, damping: 20 }}
-        >
-          <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full" />
-          <img src={faviconSvg} alt="Filo Diretto Logo" className="w-full h-full relative z-10" />
-        </motion.div>
+      <motion.p
+        className="text-cream/50 text-sm font-semibold tracking-[0.35em] uppercase mb-10"
+        initial={{ opacity: 0, y: 16 }}
+        animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        HR Communication Platform · 2026
+      </motion.p>
 
-        <motion.h1
-          className="text-[6vw] font-black tracking-tight leading-none mb-6"
-          initial={{ opacity: 0, y: 40 }}
-          animate={phase >= 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          C'è un modo<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-primary to-accent-teal">
-            più diretto.
-          </span>
-        </motion.h1>
-
-        <motion.p
-          className="text-2xl text-text-secondary max-w-2xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={phase >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8 }}
-        >
-          Introduciamo <strong className="text-white">Filo Diretto</strong>. <br/>
-          Il pass digitale per comunicare con ogni dipendente.
-        </motion.p>
+      <div>
+        <div className="overflow-hidden">
+          <motion.h1
+            className="font-display text-[9vw] leading-[0.88] tracking-tight text-cream"
+            initial={{ y: '110%' }}
+            animate={phase >= 2 ? { y: '0%' } : {}}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Il canale
+          </motion.h1>
+        </div>
+        <div className="overflow-hidden">
+          <motion.h1
+            className="font-display text-[9vw] leading-[0.88] tracking-tight text-purple"
+            initial={{ y: '110%' }}
+            animate={phase >= 2 ? { y: '0%' } : {}}
+            transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            che mancava.
+          </motion.h1>
+        </div>
       </div>
+
+      <motion.p
+        className="text-cream/60 text-2xl mt-10 max-w-3xl leading-relaxed"
+        initial={{ opacity: 0, y: 20 }}
+        animate={phase >= 3 ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+      >
+        Un canale diretto tra HR e ogni dipendente. Push sulla lock screen, automazioni
+        intelligenti. Senza app, senza intranet.
+      </motion.p>
+
+      <motion.div
+        className="flex items-center gap-4 mt-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+      >
+        <img src={faviconSvg} alt="" className="w-9 h-9" />
+        <span className="text-2xl font-semibold tracking-tight text-cream">Filo Diretto</span>
+      </motion.div>
     </motion.div>
   );
 }

@@ -1,128 +1,140 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+
+const NOTIFS = [
+  {
+    when: 'ora',
+    title: 'Ufficio chiuso domani',
+    body: 'Allerta meteo arancione. Domani smart working per tutti. Buon lavoro da casa!',
+  },
+  {
+    when: '8:00',
+    title: 'Buon compleanno Laura!',
+    body: 'Il team ti aspetta in sala break alle 12:30. C’è una sorpresa 🎉',
+  },
+  {
+    when: 'ieri',
+    title: 'Ferie: 3 giorni da pianificare',
+    body: 'Hai 3 giorni residui da usare entro il 30 giugno. Pianifica ora.',
+  },
+];
 
 export function Scene5() {
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
-    const timers = [
-      setTimeout(() => setPhase(1), 1000),
-      setTimeout(() => setPhase(2), 3000),
-      setTimeout(() => setPhase(3), 6000),
-      setTimeout(() => setPhase(4), 9000),
+    const t = [
+      setTimeout(() => setPhase(1), 200),
+      setTimeout(() => setPhase(2), 1000),
+      setTimeout(() => setPhase(3), 1900),
+      setTimeout(() => setPhase(4), 2800),
+      setTimeout(() => setPhase(5), 3700),
     ];
-    return () => timers.forEach(t => clearTimeout(t));
+    return () => t.forEach(clearTimeout);
   }, []);
 
   return (
-    <motion.div 
-      className="absolute inset-0 flex flex-col items-center justify-center overflow-hidden"
-      initial={{ opacity: 0, x: "100vw" }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, scale: 1.5, filter: "blur(20px)" }}
-      transition={{ duration: 1 }}
+    <motion.div
+      className="absolute inset-0 flex items-center gap-20 px-24 pt-28 pb-28"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0, filter: 'blur(8px)' }}
+      transition={{ duration: 0.6 }}
     >
-      <div className="text-center z-20 absolute top-20">
-        <motion.h2
-          className="text-[4.5vw] font-black tracking-tight"
-          initial={{ opacity: 0, y: -20 }}
-          animate={phase >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-          transition={{ duration: 0.8 }}
-        >
-          Comunicazione in tempo reale
-        </motion.h2>
+      <div className="w-[46%]">
         <motion.p
-          className="text-2xl text-text-secondary mt-4"
-          initial={{ opacity: 0 }}
-          animate={phase >= 1 ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ delay: 0.5 }}
+          className="text-purple text-sm font-semibold tracking-[0.35em] uppercase mb-6"
+          initial={{ opacity: 0, y: 16 }}
+          animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
         >
-          Invia notifiche push. Si aggiornano sul pass.
+          04 — Le push
         </motion.p>
-      </div>
 
-      {/* Side-by-side comparison */}
-      <div className="flex w-full px-20 items-center justify-between mt-20 z-10 gap-20">
-        
-        {/* HR Dashboard simplified representation sending a message */}
-        <motion.div 
-          className="flex-1 glass-panel rounded-2xl p-8"
-          initial={{ opacity: 0, x: -50 }}
-          animate={phase >= 2 ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-        >
-          <div className="text-xl font-medium mb-6">Invia Notifica</div>
-          <div className="space-y-4">
-            <div className="h-10 bg-white/5 rounded border border-white/10 flex items-center px-4 text-white/50">
-              Titolo: Chiusura uffici festività
-            </div>
-            <div className="h-24 bg-white/5 rounded border border-white/10 flex p-4 text-white/50">
-              Messaggio: Gli uffici chiuderanno alle 14:00...
-            </div>
-            <motion.div 
-              className="h-12 bg-primary rounded flex items-center justify-center font-bold"
-              animate={phase >= 3 ? { backgroundColor: 'var(--color-success)', scale: 0.95 } : {}}
+        <div className="mb-8">
+          <div className="overflow-hidden">
+            <motion.h2
+              className="font-display text-[6.5vw] leading-[0.88] tracking-tight text-cream"
+              initial={{ y: '110%' }}
+              animate={phase >= 1 ? { y: '0%' } : {}}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              {phase >= 3 ? 'Inviato!' : 'Invia a tutti'}
-            </motion.div>
+              HR parla.
+            </motion.h2>
           </div>
-        </motion.div>
+          <div className="overflow-hidden">
+            <motion.h2
+              className="font-display text-[6.5vw] leading-[0.88] tracking-tight text-purple"
+              initial={{ y: '110%' }}
+              animate={phase >= 1 ? { y: '0%' } : {}}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Tutti leggono.
+            </motion.h2>
+          </div>
+        </div>
 
-        {/* The Connection Line visualization */}
-        <motion.div 
-          className="w-32 h-1 bg-white/10 relative"
+        <motion.p
+          className="text-cream/55 text-xl max-w-lg"
           initial={{ opacity: 0 }}
-          animate={phase >= 2 ? { opacity: 1 } : { opacity: 0 }}
+          animate={phase >= 2 ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6 }}
         >
-          {phase >= 3 && (
-            <motion.div 
-              className="absolute inset-y-0 left-0 bg-accent-teal shadow-[0_0_15px_var(--color-accent-teal)]"
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 0.5, ease: "linear" }}
-            />
-          )}
-        </motion.div>
+          Ogni messaggio arriva sulla lock screen. Come un messaggio, non come un’email.
+        </motion.p>
 
-        {/* Employee Phone Lock Screen */}
-        <motion.div 
-          className="w-[300px] h-[600px] bg-black rounded-[3rem] border-8 border-gray-800 relative overflow-hidden"
-          initial={{ opacity: 0, x: 50 }}
-          animate={phase >= 2 ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+        <motion.div
+          className="flex items-baseline gap-3 mt-10 border-t border-cream/15 pt-6"
+          initial={{ opacity: 0, y: 16 }}
+          animate={phase >= 2 ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {/* Wallpaper */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-800 to-slate-900" />
-          
-          {/* Time */}
-          <div className="absolute top-16 inset-x-0 text-center text-white text-5xl font-light">
-            14:30
-          </div>
-
-          {/* Notification */}
-          <AnimatePresence>
-            {phase >= 3 && (
-              <motion.div 
-                className="absolute top-40 inset-x-4 bg-white/10 backdrop-blur-xl rounded-2xl p-4 flex gap-3"
-                initial={{ opacity: 0, y: -20, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: 0.5, type: "spring", damping: 15 }}
-              >
-                <div className="w-8 h-8 rounded bg-primary flex items-center justify-center flex-shrink-0">
-                  <div className="w-4 h-4 bg-white rounded-sm" />
-                </div>
-                <div>
-                  <div className="text-white text-sm font-bold flex justify-between">
-                    <span>Filo Diretto</span>
-                    <span className="text-white/50 text-xs font-normal">adesso</span>
-                  </div>
-                  <div className="text-white font-medium text-sm mt-1">Chiusura uffici festività</div>
-                  <div className="text-white/80 text-xs mt-1 leading-snug">Gli uffici chiuderanno alle 14:00. Buone feste!</div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <span className="font-display text-7xl text-cream leading-none">95%+</span>
+          <span className="text-cream/50 text-sm uppercase tracking-widest">tasso di lettura</span>
         </motion.div>
-
       </div>
+
+      {/* Phone lock screen */}
+      <motion.div
+        className="relative w-[320px] h-[660px] shrink-0 rounded-[3rem] border-[10px] border-[#1a1a1a] shadow-2xl overflow-hidden"
+        initial={{ opacity: 0, x: 60 }}
+        animate={phase >= 1 ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-[#241b3a] via-[#140f22] to-black" />
+        <div className="absolute top-0 inset-x-0 flex justify-center pt-3 z-20">
+          <div className="w-28 h-7 bg-black rounded-full" />
+        </div>
+
+        {/* clock */}
+        <div className="absolute top-16 inset-x-0 text-center">
+          <div className="text-cream/70 text-sm">venerdì 12 giugno</div>
+          <div className="text-cream text-7xl font-extralight tracking-tight">9:41</div>
+        </div>
+
+        {/* notifications */}
+        <div className="absolute top-52 inset-x-3 space-y-3">
+          {NOTIFS.map((n, i) => (
+            <motion.div
+              key={n.title}
+              className="rounded-2xl bg-cream/12 backdrop-blur-xl border border-cream/10 p-3.5"
+              initial={{ opacity: 0, y: -16, scale: 0.95 }}
+              animate={phase >= 3 + i ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ type: 'spring', stiffness: 220, damping: 20 }}
+            >
+              <div className="flex items-center gap-2 mb-1.5">
+                <div className="w-6 h-6 rounded-md bg-purple flex items-center justify-center shrink-0">
+                  <div className="w-3 h-3 rounded-sm bg-cream" />
+                </div>
+                <span className="text-cream/90 text-xs font-semibold flex-1">HR · Acme Corp</span>
+                <span className="text-cream/45 text-[10px]">{n.when}</span>
+              </div>
+              <div className="text-cream text-sm font-semibold leading-tight">{n.title}</div>
+              <div className="text-cream/70 text-xs mt-1 leading-snug">{n.body}</div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </motion.div>
   );
 }
