@@ -38,13 +38,13 @@ export function Scene7() {
         animate={phase >= 2 ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
       >
-        <img src={faviconSvg} alt="Filo Diretto" className="w-16 h-16 mb-8" />
         <h1 className="font-display text-[9vw] leading-[1] text-cream italic pr-8">
           Filo Diretto
         </h1>
-        
+        <img src={faviconSvg} alt="Filo Diretto" className="w-16 h-16 mt-10" />
+
         <motion.p
-          className="text-cream/50 text-xl tracking-[0.2em] uppercase mt-12 font-medium"
+          className="text-cream/50 text-xl tracking-[0.2em] uppercase mt-8 font-medium"
           initial={{ opacity: 0 }}
           animate={phase >= 3 ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}

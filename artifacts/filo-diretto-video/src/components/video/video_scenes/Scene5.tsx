@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { PhoneFrame } from '../PhoneFrame';
 
 const NOTIFS = [
   { time: 'ora', title: 'Comunicazione Interna', text: 'Domani gli uffici chiudono alle 15 per disinfestazione.' },
@@ -27,41 +28,52 @@ export function Scene5() {
       exit={{ opacity: 0, filter: 'blur(10px)' }}
       transition={{ duration: 0.6 }}
     >
-      <div className="absolute top-0 right-0 w-[50%] h-full flex justify-end">
-         <div className="relative w-full h-full flex items-center justify-center">
-            <div className="absolute inset-0 bg-purple/10 blur-[120px] rounded-full" />
+      <div className="absolute top-0 right-0 w-[50%] h-full flex justify-center py-20 pr-16 relative">
+         <div className="relative w-full h-full flex items-center justify-center z-10">
+            <div className="absolute inset-0 bg-purple/10 blur-[120px] rounded-full pointer-events-none" />
+            
             <motion.div 
-              className="relative w-[320px] rounded-[2.5rem] bg-ink/90 border border-white/10 shadow-2xl backdrop-blur-md p-4 overflow-hidden"
               initial={{ y: 60, opacity: 0 }}
               animate={phase >= 2 ? { y: 0, opacity: 1 } : {}}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-               <div className="text-center pt-8 pb-12">
-                 <div className="text-cream/50 text-xs uppercase tracking-widest mb-2">Martedì 14</div>
-                 <div className="text-cream text-6xl font-light">10:42</div>
-               </div>
-               
-               <div className="space-y-3">
-                 {NOTIFS.map((n, i) => (
-                   <motion.div 
-                     key={i}
-                     className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10"
-                     initial={{ opacity: 0, x: 20 }}
-                     animate={phase >= 3 ? { opacity: 1, x: 0 } : {}}
-                     transition={{ duration: 0.5, delay: i * 0.2 }}
-                   >
-                     <div className="flex justify-between items-center mb-1">
-                        <div className="flex items-center gap-2">
-                           <div className="w-4 h-4 rounded-sm bg-purple" />
-                           <span className="text-cream/80 text-xs font-semibold uppercase tracking-wider">Filo Diretto</span>
-                        </div>
-                        <span className="text-cream/40 text-[10px] uppercase">{n.time}</span>
-                     </div>
-                     <div className="text-cream text-sm font-medium leading-tight mb-1 mt-2">{n.title}</div>
-                     <div className="text-cream/60 text-xs leading-snug">{n.text}</div>
-                   </motion.div>
-                 ))}
-               </div>
+              <PhoneFrame screenClassName="bg-gradient-to-b from-ink/90 to-ink border-0 flex flex-col p-4 shadow-inner">
+                {/* Lock Screen Header */}
+                <div className="text-center pt-8 pb-8">
+                  <div className="text-cream/50 text-[10px] uppercase tracking-widest font-semibold mb-1">Martedì 14</div>
+                  <div className="text-cream text-5xl font-light tracking-tight">10:42</div>
+                </div>
+                
+                {/* Notifications Stack */}
+                <div className="space-y-3 mt-4">
+                  {NOTIFS.map((n, i) => (
+                    <motion.div 
+                      key={i}
+                      className="bg-white/10 backdrop-blur-xl rounded-2xl p-3.5 shadow-lg border border-white/10 relative overflow-hidden"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={phase >= 3 ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: i * 0.2 + 0.2 }}
+                    >
+                      <div className="flex justify-between items-center mb-1.5">
+                         <div className="flex items-center gap-1.5">
+                            <div className="w-3.5 h-3.5 rounded-[3px] bg-purple flex items-center justify-center">
+                              <span className="text-white text-[8px] font-bold">f</span>
+                            </div>
+                            <span className="text-cream/80 text-[9px] font-bold uppercase tracking-widest">Filo Diretto</span>
+                         </div>
+                         <span className="text-cream/40 text-[9px] uppercase">{n.time}</span>
+                      </div>
+                      <div className="text-cream text-sm font-semibold leading-tight mb-1">{n.title}</div>
+                      <div className="text-cream/70 text-xs leading-snug font-medium">{n.text}</div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Bottom Lock Icon indicator */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-50">
+                  <div className="w-10 h-1 rounded-full bg-white/30" />
+                </div>
+              </PhoneFrame>
             </motion.div>
          </div>
       </div>

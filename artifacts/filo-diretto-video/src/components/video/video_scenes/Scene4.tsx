@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { PhoneFrame } from '../PhoneFrame';
 
 export function Scene4() {
   const [phase, setPhase] = useState(0);
@@ -23,48 +24,53 @@ export function Scene4() {
       exit={{ opacity: 0, filter: 'blur(10px)' }}
       transition={{ duration: 0.6 }}
     >
-      <div className="absolute top-0 right-0 w-[50%] h-full flex items-center justify-end py-16 pr-16">
-        <motion.div 
-          className="w-full h-[85%] relative overflow-hidden rounded-[2rem]"
-          initial={{ opacity: 0, x: 40 }}
-          animate={phase >= 2 ? { opacity: 1, x: 0 } : {}}
+      <div className="absolute top-0 right-0 w-[50%] h-full flex items-center justify-center py-20 pr-16 relative">
+        
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          animate={phase >= 2 ? { opacity: 1, scale: 1, y: 0 } : {}}
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10"
         >
-          <img
-            src={`${import.meta.env.BASE_URL}images/hand_phone.jpg`}
-            alt="Hand holding phone"
-            className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 mix-blend-luminosity"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
-          
-          <motion.div
-            className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 w-[280px] rounded-[1.5rem] p-6 shadow-2xl overflow-hidden backdrop-blur-xl border border-white/10 z-10"
-            style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.95), rgba(109,40,217,0.95))' }}
-            initial={{ y: '30%', opacity: 0, scale: 0.9 }}
-            animate={phase >= 3 ? { y: '-50%', opacity: 1, scale: 1 } : {}}
-            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-          >
-            <div className="flex justify-between items-start mb-8">
-              <div className="w-8 h-8 rounded bg-cream flex items-center justify-center">
-                <div className="w-4 h-4 rounded-sm bg-purple" />
-              </div>
-              <span className="text-cream/80 text-[10px] font-bold tracking-widest uppercase">Badge & Pass</span>
-            </div>
-            <div className="text-cream text-3xl font-display leading-none mb-2">Giulia Bianchi</div>
-            <div className="text-cream/60 text-sm mb-6">Marketing Team</div>
+          <PhoneFrame screenClassName="bg-ink flex flex-col items-center pt-12">
             
-            <div className="w-full aspect-square max-h-48 mx-auto bg-white rounded-xl p-4 flex items-center justify-center relative overflow-hidden mb-4 shadow-inner">
-               <svg className="w-full h-full text-ink" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3 3h8v8H3zM5 5v4h4V5zM13 3h8v8h-8zM15 5v4h4V5zM3 13h8v8H3zM5 15v4h4v-4zM13 13h2v2h-2zM15 13h2v2h-2zM17 13h2v2h-2zM19 13h2v2h-2zM13 15h2v2h-2zM17 15h2v2h-2zM13 17h2v2h-2zM15 17h2v2h-2zM19 17h2v2h-2zM15 19h2v2h-2zM17 19h2v2h-2zM19 19h2v2h-2z" />
-               </svg>
-            </div>
-            <div className="text-center text-cream/40 text-[10px] uppercase tracking-widest mt-4">NFC / QR Ready</div>
-          </motion.div>
+            <motion.div
+              className="w-[90%] mx-auto mt-4 rounded-3xl p-5 shadow-2xl relative overflow-hidden"
+              style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.95), rgba(109,40,217,0.95))' }}
+              initial={{ y: 50, opacity: 0 }}
+              animate={phase >= 3 ? { y: 0, opacity: 1 } : {}}
+              transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
+            >
+              {/* Fake Apple Wallet Pass Header */}
+              <div className="flex justify-between items-start mb-6 relative z-10">
+                <div className="w-7 h-7 rounded-full bg-cream flex items-center justify-center">
+                  <div className="w-3.5 h-3.5 rounded-full bg-purple" />
+                </div>
+                <span className="text-cream/80 text-[9px] font-bold tracking-widest uppercase">Badge & Pass</span>
+              </div>
+              
+              <div className="text-cream text-2xl font-display leading-none mb-1 relative z-10">Giulia Bianchi</div>
+              <div className="text-cream/70 text-xs mb-5 relative z-10">Marketing Team</div>
+              
+              <div className="w-full aspect-square bg-white rounded-2xl p-3 flex items-center justify-center relative z-10 shadow-sm">
+                 <svg className="w-full h-full text-ink" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 3h8v8H3zM5 5v4h4V5zM13 3h8v8h-8zM15 5v4h4V5zM3 13h8v8H3zM5 15v4h4v-4zM13 13h2v2h-2zM15 13h2v2h-2zM17 13h2v2h-2zM19 13h2v2h-2zM13 15h2v2h-2zM17 15h2v2h-2zM13 17h2v2h-2zM15 17h2v2h-2zM19 17h2v2h-2zM15 19h2v2h-2zM17 19h2v2h-2zM19 19h2v2h-2z" />
+                 </svg>
+              </div>
+              
+              <div className="text-center text-cream/50 text-[9px] uppercase tracking-widest mt-4 relative z-10 font-semibold">NFC / QR Ready</div>
+              
+              {/* Decorative pass styling */}
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-black/20 rounded-full blur-xl pointer-events-none" />
+            </motion.div>
+
+          </PhoneFrame>
 
           <motion.div
-            className="absolute left-[8%] bottom-[6%] bg-cream text-ink px-4 py-3 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] flex items-center gap-3 border border-white/50 z-20"
-            initial={{ opacity: 0, y: 20, scale: 0.8 }}
-            animate={phase >= 5 ? { opacity: 1, y: 0, scale: 1 } : {}}
+            className="absolute -left-12 bottom-12 bg-cream text-ink px-4 py-3 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] flex items-center gap-3 border border-white/50 z-20"
+            initial={{ opacity: 0, x: -20, scale: 0.8 }}
+            animate={phase >= 5 ? { opacity: 1, x: 0, scale: 1 } : {}}
             transition={{ type: 'spring', stiffness: 150, damping: 15 }}
           >
             <div className="w-8 h-8 rounded-full bg-purple/15 flex items-center justify-center text-purple">
