@@ -41,7 +41,7 @@ export function Scene7() {
         <h1 className="font-display text-[9vw] leading-[1] text-cream italic pr-8">
           Filo Diretto
         </h1>
-        <img src={faviconSvg} alt="Filo Diretto" className="w-16 h-16 mt-10" />
+        <img src={faviconSvg} alt="Filo Diretto" className="w-28 h-28 mt-10" />
 
         <motion.p
           className="text-cream/50 text-xl tracking-[0.2em] uppercase mt-8 font-medium"
