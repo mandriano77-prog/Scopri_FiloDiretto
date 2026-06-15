@@ -2,6 +2,7 @@ import { useEffect, type ReactNode } from "react";
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import Footer from "@/components/landing/footer";
+import Logo from "@/components/landing/logo";
 
 interface LegalLayoutProps {
   title: string;
@@ -27,11 +28,8 @@ export default function LegalLayout({ title, updated, children }: LegalLayoutPro
   return (
     <div className="min-h-[100dvh] bg-background flex flex-col">
       <nav className="px-6 py-4 flex items-center justify-between border-b border-border/10">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <span className="font-serif italic text-lg text-primary-foreground leading-none pr-0.5">fd</span>
-          </div>
-          <span className="font-serif text-2xl tracking-tight text-foreground">Filo Diretto</span>
+        <Link href="/">
+          <Logo />
         </Link>
         <Link href="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
           <ArrowLeft className="h-4 w-4" /> Torna alla home

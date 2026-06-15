@@ -1,16 +1,12 @@
 import { Link } from "wouter";
+import Logo from "@/components/landing/logo";
 
 export default function Footer() {
   return (
     <footer className="bg-background border-t border-border/20 py-14 px-6 text-sm text-muted-foreground">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-start md:justify-between gap-8">
         <div className="space-y-3">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center">
-              <span className="font-serif italic text-sm text-primary-foreground leading-none pr-0.5">fd</span>
-            </div>
-            <span className="font-serif text-xl text-foreground">Filo Diretto</span>
-          </div>
+          <Logo iconClassName="w-7 h-7" textClassName="text-xl" />
           <p className="leading-relaxed max-w-xs">
             La linea diretta con ogni dipendente, direttamente nel Wallet dello smartphone.
           </p>

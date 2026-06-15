@@ -1,9 +1,11 @@
 import { useEffect } from "react";
+import { Link } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useCreateLead } from "@workspace/api-client-react";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -33,6 +35,9 @@ const formSchema = z.object({
   phone: z.string().optional(),
   plan: z.string().optional(),
   message: z.string().optional(),
+  privacyConsent: z.literal(true, {
+    errorMap: () => ({ message: "Devi accettare la Privacy Policy per proseguire" }),
+  }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -52,6 +57,7 @@ export default function LeadForm() {
       phone: "",
       plan: "",
       message: "",
+      privacyConsent: false as unknown as true,
     },
   });
 
@@ -64,7 +70,8 @@ export default function LeadForm() {
   }, [form]);
 
   function onSubmit(data: FormValues) {
-    createLead.mutate({ data }, {
+    const { privacyConsent, ...payload } = data;
+    createLead.mutate({ data: payload }, {
       onSuccess: () => {
         toast({
           title: "Richiesta inviata con successo",
@@ -223,6 +230,39 @@ export default function LeadForm() {
                 />
               </FormControl>
               <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="privacyConsent"
+          render={({ field }) => (
+            <FormItem>
+              <div className="flex items-start gap-3">
+                <FormControl>
+                  <Checkbox
+                    id="privacy-consent"
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    className="mt-0.5"
+                  />
+                </FormControl>
+                <div className="space-y-1 leading-snug">
+                  <label htmlFor="privacy-consent" className="text-sm text-muted-foreground">
+                    Ho letto e accetto la{" "}
+                    <Link href="/privacy" className="text-primary underline underline-offset-2 hover:text-primary/80">
+                      Privacy Policy
+                    </Link>{" "}
+                    e la{" "}
+                    <Link href="/cookie" className="text-primary underline underline-offset-2 hover:text-primary/80">
+                      Cookie Policy
+                    </Link>
+                    , e acconsento al trattamento dei miei dati per essere ricontattato.
+                  </label>
+                  <FormMessage />
+                </div>
+              </div>
             </FormItem>
           )}
         />

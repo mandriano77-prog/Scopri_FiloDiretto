@@ -6,7 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import LeadForm from "@/components/landing/lead-form";
 import Pricing from "@/components/landing/pricing";
 import Footer from "@/components/landing/footer";
+import Logo from "@/components/landing/logo";
 import promoVideo from "@assets/Filo_Diretto_def_1781470766344.mp4";
+import promoPoster from "@assets/filo-diretto-video-poster.jpg";
 
 const benefits = [
   { icon: Smartphone, title: "Zero app da installare", desc: "Il pass si aggiunge con un tap all'Apple Wallet o Google Wallet." },
@@ -30,12 +32,7 @@ export default function Home() {
     <div className="min-h-[100dvh] bg-background overflow-hidden selection:bg-primary/30">
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-border/10">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <span className="font-serif italic text-lg text-primary-foreground leading-none pr-0.5">fd</span>
-          </div>
-          <span className="font-serif text-2xl tracking-tight">Filo Diretto</span>
-        </div>
+        <Logo />
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
           <a href="#soluzione" className="hover:text-foreground transition-colors">La Soluzione</a>
           <a href="#vantaggi" className="hover:text-foreground transition-colors">Vantaggi</a>
@@ -85,6 +82,7 @@ export default function Home() {
             <div className="rounded-2xl overflow-hidden border border-border/30 bg-black">
               <video
                 src={promoVideo}
+                poster={promoPoster}
                 controls
                 playsInline
                 preload="metadata"
