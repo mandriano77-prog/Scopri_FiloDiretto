@@ -1,1 +1,1 @@
-- [Resend email](resend-email.md) — lead form sends notify+confirm via Resend; account's sending domains (filodiretto.app, preciseadvertising.tech) are already verified, no DNS setup needed.
+- [Filo Diretto promo video](filo-diretto-video.md) — "video non funziona" was weight (1080p/33MB), not codec/delivery; re-encode to 720p faststart. Landing has NO /video/ iframe despite replit.md.

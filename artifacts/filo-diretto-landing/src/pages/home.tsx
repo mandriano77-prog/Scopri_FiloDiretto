@@ -6,7 +6,7 @@ import LeadForm from "@/components/landing/lead-form";
 import Pricing from "@/components/landing/pricing";
 import Footer from "@/components/landing/footer";
 import Logo from "@/components/landing/logo";
-import promoVideo from "@assets/Filo_Diretto_def_1781470766344.mp4";
+import promoVideo from "@assets/filo-diretto-promo-web.mp4";
 import promoPoster from "@assets/filo-diretto-video-poster.jpg";
 
 const benefits = [

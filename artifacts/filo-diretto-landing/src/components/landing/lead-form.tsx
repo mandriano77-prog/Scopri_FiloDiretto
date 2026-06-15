@@ -250,15 +250,11 @@ export default function LeadForm() {
                 </FormControl>
                 <div className="space-y-1 leading-snug">
                   <label htmlFor="privacy-consent" className="text-sm text-muted-foreground">
-                    Ho letto e accetto la{" "}
+                    Ho letto la{" "}
                     <Link href="/privacy" className="text-primary underline underline-offset-2 hover:text-primary/80">
                       Privacy Policy
                     </Link>{" "}
-                    e la{" "}
-                    <Link href="/cookie" className="text-primary underline underline-offset-2 hover:text-primary/80">
-                      Cookie Policy
-                    </Link>
-                    , e acconsento al trattamento dei miei dati per essere ricontattato.
+                    e acconsento al trattamento dei miei dati per essere ricontattato.
                   </label>
                   <FormMessage />
                 </div>
