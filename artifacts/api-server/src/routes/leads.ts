@@ -1,6 +1,7 @@
 import { Router, type IRouter } from "express";
 import { db, leadsTable } from "@workspace/db";
 import { CreateLeadBody } from "@workspace/api-zod";
+import { sendLeadEmails } from "../email";
 
 const router: IRouter = Router();
 
@@ -27,6 +28,17 @@ router.post("/leads", async (req, res) => {
         message: parsed.data.message ?? null,
       })
       .returning();
+
+    await sendLeadEmails({
+      name: lead.name,
+      email: lead.email,
+      company: lead.company,
+      companySize: lead.companySize,
+      role: lead.role,
+      phone: lead.phone,
+      plan: lead.plan,
+      message: lead.message,
+    });
 
     res.status(201).json({
       ...lead,
