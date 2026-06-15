@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Lock, BarChart3, Smartphone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import LeadForm from "@/components/landing/lead-form";
 import Pricing from "@/components/landing/pricing";
 import Footer from "@/components/landing/footer";
@@ -52,10 +51,6 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="max-w-4xl mx-auto space-y-8 relative z-10"
           >
-            <Badge variant="outline" className="rounded-full border-primary/30 bg-primary/10 text-primary-foreground/90 px-4 py-1.5 text-sm uppercase tracking-widest">
-              Comunicazione interna · fase beta
-            </Badge>
-
             <h1 className="text-6xl md:text-8xl leading-[0.95] tracking-tight">
               Il filo <span className="text-primary italic">diretto</span> con la tua azienda.
             </h1>
