@@ -9,7 +9,7 @@ const connectors = new ReplitConnectors();
 // Override via env once filodiretto.app (or a subdomain) is verified.
 const FROM_ADDRESS = process.env.LEAD_FROM_EMAIL ?? "Filo Diretto <noreply@filodiretto.app>";
 // Where internal lead notifications are delivered.
-const NOTIFY_ADDRESS = process.env.LEAD_NOTIFY_EMAIL ?? "amministrazione@preciseadvertising.tech";
+const NOTIFY_ADDRESS = process.env.LEAD_NOTIFY_EMAIL ?? "info@preciseadvertising.tech";
 
 export type LeadEmailData = {
   name: string;
