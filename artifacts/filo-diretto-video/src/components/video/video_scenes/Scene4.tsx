@@ -89,7 +89,7 @@ export function Scene4() {
 
       <div className="relative z-10 w-[50%] pr-12">
         <motion.p
-          className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
+          className="text-purple/80 text-lg font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -121,7 +121,7 @@ export function Scene4() {
         </div>
 
         <motion.p
-          className="text-cream/60 text-xl leading-relaxed max-w-sm font-light mb-4"
+          className="text-cream/60 text-2xl leading-relaxed max-w-md font-light mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -131,7 +131,7 @@ export function Scene4() {
         </motion.p>
 
         <motion.p
-          className="text-purple/90 text-lg leading-relaxed max-w-sm font-medium"
+          className="text-purple/90 text-xl leading-relaxed max-w-md font-medium"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 5 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}

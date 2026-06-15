@@ -44,7 +44,7 @@ export function Scene7() {
         <img src={faviconSvg} alt="Filo Diretto" className="w-28 h-28 mt-10" />
 
         <motion.p
-          className="text-cream/50 text-xl tracking-[0.2em] uppercase mt-8 font-medium"
+          className="text-cream/50 text-2xl tracking-[0.2em] uppercase mt-8 font-medium"
           initial={{ opacity: 0 }}
           animate={phase >= 3 ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}

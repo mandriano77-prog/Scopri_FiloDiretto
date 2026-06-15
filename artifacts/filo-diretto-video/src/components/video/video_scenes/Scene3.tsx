@@ -24,7 +24,7 @@ export function Scene3() {
     >
       <div className="w-[35%] z-10 flex flex-col justify-center h-full">
         <motion.div
-          className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
+          className="text-purple/80 text-lg font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -56,7 +56,7 @@ export function Scene3() {
         </div>
 
         <motion.div
-          className="text-cream/60 text-xl leading-relaxed max-w-sm font-light mb-8"
+          className="text-cream/60 text-2xl leading-relaxed max-w-md font-light mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -65,7 +65,7 @@ export function Scene3() {
             Dal pannello personale tutto è sotto controllo. 
             Carica i dati, imposta le automazioni.
           </p>
-          <div className="flex items-center gap-3 text-purple-soft text-sm font-semibold tracking-wider uppercase">
+          <div className="flex items-center gap-3 text-purple-soft text-base font-semibold tracking-wider uppercase">
              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
              </svg>

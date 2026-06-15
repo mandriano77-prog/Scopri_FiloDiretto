@@ -42,7 +42,7 @@ export function Scene6() {
 
       <div className="relative z-10 w-full">
         <motion.p
-          className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
+          className="text-purple/80 text-lg font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -82,7 +82,7 @@ export function Scene6() {
                transition={{ duration: 0.6, delay: i * 0.167 }}
              >
                 <div className="font-display text-7xl text-cream leading-none mb-4">{s.value}</div>
-                <div className="text-cream/50 text-sm tracking-widest uppercase font-medium">{s.label}</div>
+                <div className="text-cream/50 text-lg tracking-widest uppercase font-medium">{s.label}</div>
              </motion.div>
            ))}
         </div>

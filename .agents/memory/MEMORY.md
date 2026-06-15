@@ -1,1 +1,1 @@
-- [Filo Diretto promo video](filo-diretto-video.md) — "video non funziona" was weight (1080p/33MB), not codec/delivery; re-encode to 720p faststart. Landing has NO /video/ iframe despite replit.md.
+- [Filo Diretto promo video](filo-diretto-video.md) — landing plays a PRE-RENDERED MP4 (not a live /video/ iframe); changing scenes needs a headless re-render runbook. "non funziona" was weight; keep 720p faststart.

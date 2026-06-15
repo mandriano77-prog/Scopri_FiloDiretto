@@ -25,7 +25,7 @@ export function Scene1() {
     >
       <div className="w-[45%] z-10 flex flex-col justify-center h-full max-w-xl">
         <motion.div
-          className="text-purple/80 text-xs font-semibold tracking-[0.2em] uppercase mb-12"
+          className="text-purple/80 text-lg font-semibold tracking-[0.2em] uppercase mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 1 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -36,7 +36,7 @@ export function Scene1() {
         <div className="mb-10 w-full">
           <div className="mb-2">
             <motion.h1
-              className="font-display text-[clamp(44px,5vw,70px)] leading-[1.05] pb-2 text-cream whitespace-nowrap"
+              className="font-display text-[clamp(52px,6vw,82px)] leading-[1.05] pb-2 text-cream whitespace-nowrap"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 2 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -46,7 +46,7 @@ export function Scene1() {
           </div>
           <div>
             <motion.h1
-              className="font-display text-[clamp(44px,5vw,70px)] leading-[1.05] pb-2 text-cream/50 italic whitespace-nowrap"
+              className="font-display text-[clamp(52px,6vw,82px)] leading-[1.05] pb-2 text-cream/50 italic whitespace-nowrap"
               initial={{ y: '100%', rotateX: 20 }}
               animate={phase >= 3 ? { y: '0%', rotateX: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -57,7 +57,7 @@ export function Scene1() {
         </div>
 
         <motion.p
-          className="text-cream/60 text-lg leading-relaxed font-light"
+          className="text-cream/60 text-2xl leading-relaxed font-light"
           initial={{ opacity: 0, y: 20 }}
           animate={phase >= 4 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
