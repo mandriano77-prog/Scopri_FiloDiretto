@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Lock, BarChart3, Smartphone, MapPin } from "lucide-react";
+import { ArrowRight, Lock, BarChart3, Smartphone, MapPin, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LeadForm from "@/components/landing/lead-form";
 import Pricing from "@/components/landing/pricing";
 import Footer from "@/components/landing/footer";
 import Logo from "@/components/landing/logo";
-import promoVideo from "@assets/filo-diretto-promo-web.mp4";
+import promoVideo from "@assets/filo-diretto-promo-hd.mp4";
 import promoPoster from "@assets/filo-diretto-video-poster.jpg";
 
 const benefits = [
@@ -26,6 +26,28 @@ export default function Home() {
   }, []);
 
   const scrollToContatti = () => document.getElementById('contatti')?.scrollIntoView({ behavior: 'smooth' });
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const enterFullscreen = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    void v.play().catch(() => {});
+    const anyV = v as HTMLVideoElement & {
+      webkitRequestFullscreen?: () => void;
+      webkitEnterFullscreen?: () => void;
+    };
+    try {
+      if (v.requestFullscreen) {
+        void v.requestFullscreen().catch(() => {});
+      } else if (anyV.webkitRequestFullscreen) {
+        anyV.webkitRequestFullscreen();
+      } else if (anyV.webkitEnterFullscreen) {
+        anyV.webkitEnterFullscreen();
+      }
+    } catch {
+      /* native controls remain as fallback */
+    }
+  };
 
   return (
     <div className="min-h-[100dvh] bg-background overflow-hidden selection:bg-primary/30">
@@ -73,16 +95,28 @@ export default function Home() {
 
         {/* Video / Soluzione */}
         <section id="soluzione" className="pb-24 px-6 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="rounded-2xl overflow-hidden border border-border/30 bg-black">
+          <div className="max-w-6xl mx-auto">
+            <div className="rounded-2xl overflow-hidden border border-border/30 bg-black shadow-2xl shadow-primary/10">
               <video
+                ref={videoRef}
                 src={promoVideo}
                 poster={promoPoster}
                 controls
-                playsInline
                 preload="metadata"
+                aria-label="Video esplicativo Filo Diretto"
                 className="w-full aspect-video block"
               />
+            </div>
+            <div className="flex justify-center mt-6">
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full h-12 px-7 text-base border-border/50 hover:bg-muted"
+                onClick={enterFullscreen}
+              >
+                <Maximize2 className="mr-2 h-5 w-5" />
+                Guarda a schermo intero
+              </Button>
             </div>
           </div>
         </section>
