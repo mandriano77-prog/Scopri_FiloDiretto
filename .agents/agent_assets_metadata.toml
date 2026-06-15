@@ -96,3 +96,9 @@ id = "8twE0pb-4f693eymFKJoW"
 uri = "file://artifacts/filo-diretto-video/public/audio/vo_dashboard_new.mp3"
 type = "audio"
 title = "vo dashboard"
+
+[[outputs]]
+id = "LycvqQKhphPw607enrhN5"
+uri = "file://exports/email-conferma-anteprima.jpg"
+type = "image"
+title = "Anteprima email di conferma — Filo Diretto"
