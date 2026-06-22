@@ -7,7 +7,6 @@ import Pricing from "@/components/landing/pricing";
 import Footer from "@/components/landing/footer";
 import Logo from "@/components/landing/logo";
 import promoVideo from "@assets/filo-diretto-promo-hd.mp4";
-import promoPoster from "@assets/filo-diretto-video-poster.jpg";
 
 const benefits = [
   { icon: Smartphone, title: "Zero app da installare", desc: "Il pass si aggiunge con un tap all'Apple Wallet o Google Wallet." },
@@ -100,7 +99,6 @@ export default function Home() {
               <video
                 ref={videoRef}
                 src={promoVideo}
-                poster={promoPoster}
                 controls
                 preload="metadata"
                 aria-label="Video esplicativo Filo Diretto"
