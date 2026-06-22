@@ -1,9 +1,9 @@
-// Email sending via the Resend connector (Replit Integrations).
-// Uses @replit/connectors-sdk proxy; credentials are handled by the platform.
-import { ReplitConnectors } from "@replit/connectors-sdk";
+// Email sending via the Resend HTTP API.
+// Requires RESEND_API_KEY (create one at https://resend.com/api-keys).
 import { logger } from "./lib/logger";
 
-const connectors = new ReplitConnectors();
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const RESEND_ENDPOINT = "https://api.resend.com/emails";
 
 // Sender must be an address on a domain VERIFIED in Resend.
 // Override via env once filodiretto.app (or a subdomain) is verified.
@@ -33,31 +33,20 @@ type ResendPayload = {
 // Cap how long a single send may block the request path (Resend stalls).
 const SEND_TIMEOUT_MS = 3000;
 
-function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
-  return new Promise<T>((resolve, reject) => {
-    const timer = setTimeout(() => reject(new Error(`Email send timed out after ${ms}ms`)), ms);
-    promise.then(
-      (value) => {
-        clearTimeout(timer);
-        resolve(value);
-      },
-      (err) => {
-        clearTimeout(timer);
-        reject(err);
-      },
-    );
-  });
-}
-
 async function sendViaResend(payload: ResendPayload): Promise<void> {
-  const res = await withTimeout(
-    connectors.proxy("resend", "/emails", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    }),
-    SEND_TIMEOUT_MS,
-  );
+  if (!RESEND_API_KEY) {
+    throw new Error("RESEND_API_KEY is not set; cannot send email");
+  }
+
+  const res = await fetch(RESEND_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${RESEND_API_KEY}`,
+    },
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(SEND_TIMEOUT_MS),
+  });
 
   if (!res.ok) {
     const detail = await res.text();
