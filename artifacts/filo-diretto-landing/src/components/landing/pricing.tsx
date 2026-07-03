@@ -7,7 +7,7 @@ const tiers = [
     id: "SCALEUP",
     name: "SCALEUP",
     dipendenti: "50 – 300 dipendenti",
-    price: "€1.290",
+    price: "€1.490",
     period: "/ mese",
     highlighted: false,
     includes: [
@@ -21,7 +21,7 @@ const tiers = [
     id: "MID-MARKET",
     name: "MID-MARKET",
     dipendenti: "301 – 800 dipendenti",
-    price: "€2.990",
+    price: "€2.790",
     period: "/ mese",
     highlighted: false,
     includes: [
