@@ -116,7 +116,7 @@ export default function Home() {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
-              Comunicazioni interne, badge aziendale e convenzioni in un unico pass nel Wallet. Raggiungi il 100% della forza lavoro — anche chi non ha una scrivania — senza far installare nessuna app.
+              Comunicazioni interne, badge aziendale e convenzioni in un unico pass nel Wallet. Raggiungi ogni dipendente, ovunque lavori. Nessuna app da installare.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
