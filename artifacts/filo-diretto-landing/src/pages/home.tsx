@@ -10,19 +10,22 @@ import promoVideo from "@assets/filo-diretto-promo-hd.mp4";
 
 const pillars = [
   {
+    n: "01",
     icon: BarChart3,
     title: "Comunichi e sai chi ha letto",
-    desc: "Invii dalla dashboard, segmenti per sede o reparto e vedi in tempo reale consegne e tasso di lettura. Basta email che nessuno apre.",
+    desc: "Invii la comunicazione dalla dashboard, scegli chi deve riceverla per sede o reparto e vedi quante persone l'hanno aperta.",
   },
   {
+    n: "02",
     icon: Smartphone,
-    title: "Un solo pass, non l'ennesima app",
-    desc: "Badge aziendale con NFC e QR e notifiche sulla schermata di blocco: tutto nell'Apple o Google Wallet che il dipendente ha già.",
+    title: "Un pass, non un'altra app",
+    desc: "Badge, notifiche e comunicazioni vivono nell'Apple o Google Wallet che il dipendente ha già, senza installare nulla.",
   },
   {
+    n: "03",
     icon: MapPin,
-    title: "Vantaggi che si sentono",
-    desc: "Convenzioni geolocalizzate: il pass avvisa il dipendente quando è vicino a un partner con uno sconto dedicato.",
+    title: "Convenzioni che arrivano da sole",
+    desc: "Il pass avvisa il dipendente quando c'è lo sconto di un partner lì vicino.",
   },
 ];
 
@@ -92,8 +95,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-border/10">
         <Logo />
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-          <a href="#soluzione" className="hover:text-foreground transition-colors">La Soluzione</a>
-          <a href="#vantaggi" className="hover:text-foreground transition-colors">Vantaggi</a>
+          <a href="#cosa-fa" className="hover:text-foreground transition-colors">Cosa fa</a>
           <a href="#come-funziona" className="hover:text-foreground transition-colors">Come funziona</a>
           <a href="#pricing" className="hover:text-foreground transition-colors">Prezzi</a>
         </div>
@@ -158,7 +160,41 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Problema + Casi d'uso + Soluzione */}
+        {/* Cosa fa Filo Diretto — le tre cose, in evidenza */}
+        <section id="cosa-fa" className="py-28 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-16">
+              Cosa fa Filo Diretto
+            </div>
+            <div className="divide-y divide-border/30">
+              {pillars.map((feat, i) => (
+                <motion.div
+                  key={feat.n}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-14 first:md:pt-0 items-start"
+                >
+                  <div className="md:col-span-2 font-serif text-6xl text-primary/30 leading-none">
+                    {feat.n}
+                  </div>
+                  <div className="md:col-span-4">
+                    <div className="w-11 h-11 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+                      <feat.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <h3 className="font-serif text-3xl md:text-4xl leading-tight">{feat.title}</h3>
+                  </div>
+                  <p className="md:col-span-6 text-lg text-muted-foreground leading-relaxed font-light">
+                    {feat.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Problema + Casi d'uso */}
         <section id="vantaggi" className="py-28 px-6 bg-card border-y border-border/20">
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-12">
@@ -174,7 +210,7 @@ export default function Home() {
             </div>
 
             {/* Casi d'uso */}
-            <div className="flex flex-wrap gap-3 mb-24">
+            <div className="flex flex-wrap gap-3">
               {useCases.map((uc) => (
                 <span
                   key={uc}
@@ -182,35 +218,6 @@ export default function Home() {
                 >
                   {uc}
                 </span>
-              ))}
-            </div>
-
-            {/* La soluzione — 3 pilastri */}
-            <div className="max-w-2xl mb-14">
-              <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
-                La soluzione
-              </div>
-              <h2 className="font-serif text-4xl md:text-6xl leading-[1.05]">
-                Tutto quello che serve, <span className="text-primary italic">in un pass.</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {pillars.map((feat, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="rounded-2xl border border-border/40 bg-background p-8"
-                >
-                  <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
-                    <feat.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-medium mb-3">{feat.title}</h3>
-                  <p className="text-muted-foreground text-[15px] leading-relaxed">{feat.desc}</p>
-                </motion.div>
               ))}
             </div>
           </div>
