@@ -8,11 +8,49 @@ import Footer from "@/components/landing/footer";
 import Logo from "@/components/landing/logo";
 import promoVideo from "@assets/filo-diretto-promo-hd.mp4";
 
-const benefits = [
-  { icon: Smartphone, title: "Zero app da installare", desc: "Il pass si aggiunge con un tap all'Apple Wallet o Google Wallet." },
-  { icon: Lock, title: "Notifiche in lock-screen", desc: "Comunica urgenze, turni o novità direttamente sulla schermata di blocco." },
-  { icon: BarChart3, title: "Analytics misurabili", desc: "Scopri chi legge cosa. Tassi di apertura tracciati con precisione." },
-  { icon: MapPin, title: "Convenzioni geolocalizzate", desc: "Il pass avvisa il dipendente quando è vicino a un partner convenzionato." },
+const pillars = [
+  {
+    icon: BarChart3,
+    title: "Comunichi e sai chi ha letto",
+    desc: "Invii dalla dashboard, segmenti per sede o reparto e vedi in tempo reale consegne e tasso di lettura. Basta email che nessuno apre.",
+  },
+  {
+    icon: Smartphone,
+    title: "Un solo pass, non l'ennesima app",
+    desc: "Badge aziendale con NFC e QR e notifiche sulla schermata di blocco: tutto nell'Apple o Google Wallet che il dipendente ha già.",
+  },
+  {
+    icon: MapPin,
+    title: "Vantaggi che si sentono",
+    desc: "Convenzioni geolocalizzate: il pass avvisa il dipendente quando è vicino a un partner con uno sconto dedicato.",
+  },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Crei e segmenti",
+    desc: "Scrivi la comunicazione dalla dashboard e scegli chi la riceve: tutta l'azienda, una sede o un singolo reparto.",
+  },
+  {
+    n: "02",
+    title: "Arriva nel Wallet",
+    desc: "Il dipendente la riceve sulla schermata di blocco, dentro il pass che ha già aggiunto. Nessuna app da aprire.",
+  },
+  {
+    n: "03",
+    title: "Misuri il risultato",
+    desc: "Consegne e tasso di lettura in tempo reale. Sai davvero chi ha ricevuto e chi ha letto.",
+  },
+];
+
+const useCases = [
+  "Chiusura uffici",
+  "Policy smart working",
+  "Manutenzione IT",
+  "Turni e reperibilità",
+  "Comunicazioni di sede",
+  "Onboarding nuovi assunti",
 ];
 
 export default function Home() {
@@ -56,6 +94,7 @@ export default function Home() {
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
           <a href="#soluzione" className="hover:text-foreground transition-colors">La Soluzione</a>
           <a href="#vantaggi" className="hover:text-foreground transition-colors">Vantaggi</a>
+          <a href="#come-funziona" className="hover:text-foreground transition-colors">Come funziona</a>
           <a href="#pricing" className="hover:text-foreground transition-colors">Prezzi</a>
         </div>
         <Button variant="default" className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground border-none font-medium px-6" onClick={scrollToContatti}>
@@ -77,7 +116,7 @@ export default function Home() {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
-              Raggiungi il 100% della tua forza lavoro. Anche chi non ha una scrivania, senza far scaricare l'ennesima app. Tutto tramite il Wallet dello smartphone.
+              Comunicazioni interne, badge aziendale e convenzioni in un unico pass nel Wallet. Raggiungi il 100% della forza lavoro — anche chi non ha una scrivania — senza far installare nessuna app.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
@@ -119,10 +158,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Vantaggi */}
+        {/* Problema + Casi d'uso + Soluzione */}
         <section id="vantaggi" className="py-28 px-6 bg-card border-y border-border/20">
           <div className="max-w-6xl mx-auto">
-            <div className="max-w-2xl mb-16">
+            <div className="max-w-2xl mb-12">
               <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
                 Il problema
               </div>
@@ -134,21 +173,73 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {benefits.map((feat, i) => (
+            {/* Casi d'uso */}
+            <div className="flex flex-wrap gap-3 mb-24">
+              {useCases.map((uc) => (
+                <span
+                  key={uc}
+                  className="rounded-full border border-border/50 bg-background px-4 py-2 text-sm text-muted-foreground"
+                >
+                  {uc}
+                </span>
+              ))}
+            </div>
+
+            {/* La soluzione — 3 pilastri */}
+            <div className="max-w-2xl mb-14">
+              <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
+                La soluzione
+              </div>
+              <h2 className="font-serif text-4xl md:text-6xl leading-[1.05]">
+                Tutto quello che serve, <span className="text-primary italic">in un pass.</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {pillars.map((feat, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="rounded-2xl border border-border/40 bg-background p-6"
+                  className="rounded-2xl border border-border/40 bg-background p-8"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
                     <feat.icon className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="text-lg font-medium mb-2">{feat.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{feat.desc}</p>
+                  <h3 className="text-xl font-medium mb-3">{feat.title}</h3>
+                  <p className="text-muted-foreground text-[15px] leading-relaxed">{feat.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Come funziona */}
+        <section id="come-funziona" className="py-28 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mb-16">
+              <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
+                Come funziona
+              </div>
+              <h2 className="font-serif text-4xl md:text-6xl leading-[1.05]">
+                Dalla dashboard alla tasca del dipendente <span className="text-primary italic">in tre passi.</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {steps.map((s, i) => (
+                <motion.div
+                  key={s.n}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                >
+                  <div className="font-serif text-5xl text-primary/40 mb-4">{s.n}</div>
+                  <h3 className="text-xl font-medium mb-3">{s.title}</h3>
+                  <p className="text-muted-foreground text-[15px] leading-relaxed">{s.desc}</p>
                 </motion.div>
               ))}
             </div>
