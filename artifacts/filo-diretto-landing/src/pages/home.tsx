@@ -21,6 +21,7 @@ const pillars = [
     tag: "Comunicazione HR",
     title: "Comunichi e sai chi ha letto",
     desc: "Invii dalla dashboard, segmenti per sede o reparto e la push arriva sulla schermata di blocco. Fino al 95% di lettura, con la conferma di chi ha ricevuto.",
+    points: ["Segmentazione per sede e reparto", "Conferme di lettura in tempo reale", "Automazioni"],
     img: imgDashboard,
     alt: "Dashboard di Filo Diretto con tasso di lettura e ultime comunicazioni",
   },
@@ -29,6 +30,7 @@ const pillars = [
     tag: "Hub Convenzioni",
     title: "Welfare che si sente",
     desc: "Un hub di convenzioni online e fisiche, con sconti geolocalizzati che il dipendente attiva direttamente dal pass, ovunque si trovi.",
+    points: ["Convenzioni online e fisiche", "Sconti geolocalizzati", "Attivazione dal pass"],
     img: imgConvenzioni,
     alt: "Marketplace delle convenzioni nel pass Filo Diretto",
   },
@@ -37,6 +39,7 @@ const pillars = [
     tag: "People Growth",
     title: "Le persone crescono con te",
     desc: "Ogni azione vale coin che diventano carriera: dieci esperienze di crescita, dal mentoring con il management alla formazione. L'engagement che diventa percorso.",
+    points: ["Coin per ogni azione", "10 esperienze di crescita", "Mentoring, formazione, coaching"],
     img: imgGrowth,
     alt: "Coin balance e marketplace growth nel pass Filo Diretto",
   },
@@ -213,8 +216,8 @@ export default function Home() {
                   transition={{ duration: 0.5 }}
                   className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center"
                 >
-                  <div className={`rounded-2xl overflow-hidden border border-border/30 bg-background ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                    <img src={feat.img} alt={feat.alt} className="w-full block" />
+                  <div className={`rounded-2xl overflow-hidden border border-border/30 bg-background p-4 flex justify-center ${i % 2 === 1 ? "md:order-2" : ""}`}>
+                    <img src={feat.img} alt={feat.alt} className="block max-h-[460px] w-auto rounded-lg" />
                   </div>
                   <div className={i % 2 === 1 ? "md:order-1" : ""}>
                     <div className="flex items-baseline gap-3 mb-4">
@@ -222,7 +225,14 @@ export default function Home() {
                       <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{feat.tag}</span>
                     </div>
                     <h3 className="font-serif text-2xl md:text-3xl leading-tight mb-5">{feat.title}</h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed font-light">{feat.desc}</p>
+                    <p className="text-lg text-muted-foreground leading-relaxed font-light mb-7">{feat.desc}</p>
+                    <ul className="flex flex-wrap gap-2">
+                      {feat.points.map((p) => (
+                        <li key={p} className="rounded-full border border-border/50 bg-background px-3 py-1.5 text-sm text-muted-foreground">
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </motion.div>
               ))}
