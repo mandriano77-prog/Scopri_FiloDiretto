@@ -194,8 +194,37 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Problema + Casi d'uso */}
+        <section id="vantaggi" className="py-28 px-6 bg-card border-y border-border/20">
+          <div className="max-w-6xl mx-auto">
+            <div className="max-w-2xl mb-12">
+              <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
+                Il problema
+              </div>
+              <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-7">
+                Le comunicazioni interne non arrivano <span className="text-primary italic">a tutti.</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                Le comunicazioni tradizionali non raggiungono i dipendenti frontline: le email vengono ignorate, le app aziendali non vengono scaricate. Il Wallet, invece, ce l'hanno già tutti.
+              </p>
+            </div>
+
+            {/* Casi d'uso */}
+            <div className="flex flex-wrap gap-3">
+              {useCases.map((uc) => (
+                <span
+                  key={uc}
+                  className="rounded-full border border-border/50 bg-background px-4 py-2 text-sm text-muted-foreground"
+                >
+                  {uc}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Cosa fa — il pass che fa tre cose: Parla, Attiva, Fa crescere */}
-        <section id="cosa-fa" className="py-28 px-6 bg-card border-y border-border/20">
+        <section id="cosa-fa" className="py-28 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="max-w-2xl mb-20">
               <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
@@ -241,7 +270,7 @@ export default function Home() {
         </section>
 
         {/* Nel Wallet, zero app */}
-        <section className="py-28 px-6">
+        <section className="py-28 px-6 bg-card border-y border-border/20">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
               <div>
@@ -263,35 +292,6 @@ export default function Home() {
                   <img src={imgNotifiche} alt="Notifiche di Filo Diretto sulla schermata di blocco" className="w-full block" />
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Problema + Casi d'uso */}
-        <section id="vantaggi" className="py-28 px-6 bg-card border-y border-border/20">
-          <div className="max-w-6xl mx-auto">
-            <div className="max-w-2xl mb-12">
-              <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
-                Il problema
-              </div>
-              <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-7">
-                Le comunicazioni interne non arrivano <span className="text-primary italic">a tutti.</span>
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                Le comunicazioni tradizionali non raggiungono i dipendenti frontline: le email vengono ignorate, le app aziendali non vengono scaricate. Il Wallet, invece, ce l'hanno già tutti.
-              </p>
-            </div>
-
-            {/* Casi d'uso */}
-            <div className="flex flex-wrap gap-3">
-              {useCases.map((uc) => (
-                <span
-                  key={uc}
-                  className="rounded-full border border-border/50 bg-background px-4 py-2 text-sm text-muted-foreground"
-                >
-                  {uc}
-                </span>
-              ))}
             </div>
           </div>
         </section>
