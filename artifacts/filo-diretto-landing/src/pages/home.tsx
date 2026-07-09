@@ -133,6 +133,21 @@ export default function Home() {
           </motion.div>
         </section>
 
+        {/* Le persone al centro — anima del prodotto */}
+        <section id="persone" className="py-28 px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
+              Le persone al centro
+            </div>
+            <h2 className="font-serif text-4xl md:text-6xl leading-[1.1] mb-8">
+              Oggi al centro ci sono <span className="text-primary italic">le persone.</span>
+            </h2>
+            <p className="text-xl text-muted-foreground leading-relaxed font-light">
+              Le Risorse Umane non sono più solo amministrazione: sono il cuore strategico dell'azienda, fatto di cultura, ascolto e relazione. Filo Diretto trasforma le comunicazioni interne in coinvolgimento vero, quello che fa sentire ogni persona parte dell'azienda e la fa crescere insieme a te.
+            </p>
+          </div>
+        </section>
+
         {/* Cosa fa Filo Diretto — le tre cose, in evidenza */}
         <section id="cosa-fa" className="py-28 px-6">
           <div className="max-w-6xl mx-auto">
