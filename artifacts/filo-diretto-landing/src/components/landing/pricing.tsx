@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const tiers = [
@@ -79,10 +79,14 @@ export default function Pricing() {
   return (
     <section id="pricing" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center space-y-6 mb-20">
+        <div className="text-center flex flex-col items-center space-y-6 mb-20">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+            <Sparkles className="h-4 w-4" />
+            Prezzi di lancio
+          </div>
           <h2 className="text-5xl md:text-7xl font-serif">Piani chiari, <span className="text-primary italic">valore reale.</span></h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Nessun costo nascosto per dipendente. Un canone mensile flat che include l'intero potenziale della piattaforma.
+            Prezzi di lancio riservati alle prime aziende: bloccando il canone adesso, lo mantieni anche quando aumenteranno.
           </p>
         </div>
 
@@ -107,6 +111,11 @@ export default function Pricing() {
                   <span className="text-4xl font-bold tracking-tight">{tier.price}</span>
                   <span className="text-muted-foreground">{tier.period}</span>
                 </div>
+                {tier.price !== "Su misura" && (
+                  <div className="mt-2 text-xs font-medium uppercase tracking-wider text-primary">
+                    Prezzo di lancio
+                  </div>
+                )}
               </div>
 
               <div className="flex-1 space-y-4 mb-8">
