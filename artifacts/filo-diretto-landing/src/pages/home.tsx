@@ -106,7 +106,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-[88vh] flex flex-col items-center justify-center px-6 pt-32 pb-20 text-center">
+        <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-6 pt-28 pb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,40 +133,13 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* Video / Soluzione */}
-        <section id="soluzione" className="pb-24 px-6 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="rounded-2xl overflow-hidden border border-border/30 bg-black shadow-2xl shadow-primary/10">
-              <video
-                ref={videoRef}
-                src={promoVideo}
-                controls
-                preload="metadata"
-                aria-label="Video esplicativo Filo Diretto"
-                className="w-full aspect-video block"
-              />
-            </div>
-            <div className="flex justify-center mt-6">
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full h-12 px-7 text-base border-border/50 hover:bg-muted"
-                onClick={enterFullscreen}
-              >
-                <Maximize2 className="mr-2 h-5 w-5" />
-                Guarda a schermo intero
-              </Button>
-            </div>
-          </div>
-        </section>
-
         {/* Cosa fa Filo Diretto — le tre cose, in evidenza */}
         <section id="cosa-fa" className="py-28 px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-16">
               Cosa fa Filo Diretto
             </div>
-            <div className="divide-y divide-border/30">
+            <div className="space-y-5">
               {pillars.map((feat, i) => (
                 <motion.div
                   key={feat.n}
@@ -174,18 +147,18 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-14 first:md:pt-0 items-start"
+                  className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-center rounded-2xl border border-border/40 bg-card p-8 md:p-10"
                 >
-                  <div className="md:col-span-2 font-serif text-6xl text-primary/30 leading-none">
+                  <div className="md:col-span-1 font-serif text-5xl text-primary/40 leading-none">
                     {feat.n}
                   </div>
-                  <div className="md:col-span-4">
-                    <div className="w-11 h-11 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+                  <div className="md:col-span-5 flex items-center gap-4">
+                    <div className="w-12 h-12 shrink-0 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
                       <feat.icon className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="font-serif text-3xl md:text-4xl leading-tight">{feat.title}</h3>
+                    <h3 className="font-serif text-2xl md:text-3xl leading-tight">{feat.title}</h3>
                   </div>
-                  <p className="md:col-span-6 text-lg text-muted-foreground leading-relaxed font-light">
+                  <p className="md:col-span-6 text-muted-foreground text-base leading-relaxed">
                     {feat.desc}
                   </p>
                 </motion.div>
@@ -249,6 +222,41 @@ export default function Home() {
                   <p className="text-muted-foreground text-[15px] leading-relaxed">{s.desc}</p>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Video demo */}
+        <section id="soluzione" className="py-28 px-6 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="max-w-2xl mb-12">
+              <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
+                Guardalo in azione
+              </div>
+              <h2 className="font-serif text-4xl md:text-6xl leading-[1.05]">
+                Un minuto per capire <span className="text-primary italic">come funziona.</span>
+              </h2>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-border/30 bg-black shadow-2xl shadow-primary/10">
+              <video
+                ref={videoRef}
+                src={promoVideo}
+                controls
+                preload="metadata"
+                aria-label="Video esplicativo Filo Diretto"
+                className="w-full aspect-video block"
+              />
+            </div>
+            <div className="flex justify-center mt-6">
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full h-12 px-7 text-base border-border/50 hover:bg-muted"
+                onClick={enterFullscreen}
+              >
+                <Maximize2 className="mr-2 h-5 w-5" />
+                Guarda a schermo intero
+              </Button>
             </div>
           </div>
         </section>
