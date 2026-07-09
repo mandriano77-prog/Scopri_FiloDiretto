@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Lock, BarChart3, Smartphone, MapPin, Maximize2 } from "lucide-react";
+import { ArrowRight, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LeadForm from "@/components/landing/lead-form";
 import Pricing from "@/components/landing/pricing";
@@ -8,25 +8,37 @@ import Footer from "@/components/landing/footer";
 import Logo from "@/components/landing/logo";
 import promoVideo from "@assets/filo-diretto-promo-hd.mp4";
 import promoPoster from "@assets/filo-diretto-poster.jpg";
+import imgDashboard from "@assets/fd-dashboard.jpg";
+import imgConvenzioni from "@assets/fd-convenzioni.jpg";
+import imgGrowth from "@assets/fd-growth.jpg";
+import imgWallet from "@assets/fd-wallet.jpg";
+import imgNotifiche from "@assets/fd-notifiche.jpg";
+import imgPersone from "@assets/fd-persone.jpg";
 
 const pillars = [
   {
-    n: "01",
-    icon: BarChart3,
+    verb: "Parla",
+    tag: "Comunicazione HR",
     title: "Comunichi e sai chi ha letto",
-    desc: "Invii la comunicazione dalla dashboard, scegli chi deve riceverla per sede o reparto e vedi quante persone l'hanno aperta.",
+    desc: "Invii dalla dashboard, segmenti per sede o reparto e la push arriva sulla schermata di blocco. Fino al 95% di lettura, con la conferma di chi ha ricevuto.",
+    img: imgDashboard,
+    alt: "Dashboard di Filo Diretto con tasso di lettura e ultime comunicazioni",
   },
   {
-    n: "02",
-    icon: Smartphone,
-    title: "Un pass, non un'altra app",
-    desc: "Badge, notifiche e comunicazioni vivono nell'Apple o Google Wallet che il dipendente ha già, senza installare nulla.",
+    verb: "Attiva",
+    tag: "Hub Convenzioni",
+    title: "Welfare che si sente",
+    desc: "Un hub di convenzioni online e fisiche, con sconti geolocalizzati che il dipendente attiva direttamente dal pass, ovunque si trovi.",
+    img: imgConvenzioni,
+    alt: "Marketplace delle convenzioni nel pass Filo Diretto",
   },
   {
-    n: "03",
-    icon: MapPin,
-    title: "Convenzioni che arrivano da sole",
-    desc: "Il pass avvisa il dipendente quando c'è lo sconto di un partner lì vicino.",
+    verb: "Fa crescere",
+    tag: "People Growth",
+    title: "Le persone crescono con te",
+    desc: "Ogni azione vale coin che diventano carriera: dieci esperienze di crescita, dal mentoring con il management alla formazione. L'engagement che diventa percorso.",
+    img: imgGrowth,
+    alt: "Coin balance e marketplace growth nel pass Filo Diretto",
   },
 ];
 
@@ -68,7 +80,7 @@ export default function Home() {
     document.title = "Filo Diretto | La linea diretta con i tuoi dipendenti";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Raggiungi ogni dipendente, ovunque si trovi. Zero app da scaricare. Comunicazioni interne, notifiche push e convenzioni aziendali direttamente nel Wallet dello smartphone.");
+      metaDesc.setAttribute("content", "Raggiungi ogni dipendente, ovunque si trovi. Zero app da scaricare. Comunicazioni interne, welfare e crescita delle persone in un unico pass nel Wallet dello smartphone.");
     }
   }, []);
 
@@ -125,7 +137,7 @@ export default function Home() {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
-              Comunicazioni interne, badge aziendale e convenzioni in un unico pass nel Wallet. Raggiungi ogni dipendente, ovunque lavori. Nessuna app da installare.
+              Comunicazioni interne, welfare e crescita delle persone in un unico pass nel Wallet. Raggiungi ogni dipendente, ovunque lavori. Nessuna app da installare.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
@@ -142,20 +154,27 @@ export default function Home() {
 
         {/* Le persone al centro — anima del prodotto */}
         <section id="persone" className="py-28 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
-              Le persone al centro
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+              <div>
+                <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
+                  Le persone al centro
+                </div>
+                <h2 className="font-serif text-4xl md:text-6xl leading-[1.1] mb-8">
+                  Oggi al centro ci sono <span className="text-primary italic">le persone.</span>
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                  Le Risorse Umane non sono più solo amministrazione: sono il cuore strategico dell'azienda, fatto di cultura, ascolto e relazione. Filo Diretto trasforma le comunicazioni interne in coinvolgimento vero, quello che fa sentire ogni persona parte dell'azienda e la fa crescere insieme a te.
+                </p>
+              </div>
+              <div className="rounded-3xl overflow-hidden border border-border/30">
+                <img src={imgPersone} alt="Una persona usa il proprio pass Filo Diretto dallo smartphone" className="w-full h-full object-cover" />
+              </div>
             </div>
-            <h2 className="font-serif text-4xl md:text-6xl leading-[1.1] mb-8">
-              Oggi al centro ci sono <span className="text-primary italic">le persone.</span>
-            </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed font-light">
-              Le Risorse Umane non sono più solo amministrazione: sono il cuore strategico dell'azienda, fatto di cultura, ascolto e relazione. Filo Diretto trasforma le comunicazioni interne in coinvolgimento vero, quello che fa sentire ogni persona parte dell'azienda e la fa crescere insieme a te.
-            </p>
 
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6">
               {results.map((r) => (
-                <div key={r.label} className="rounded-2xl border border-border/40 bg-card p-8">
+                <div key={r.label} className="rounded-2xl border border-border/40 bg-card p-8 text-center">
                   {r.pre && (
                     <div className="text-xs uppercase tracking-wider text-muted-foreground/70 mb-1">
                       {r.pre}
@@ -166,42 +185,74 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-xs text-muted-foreground/60">
+            <p className="mt-6 text-center text-xs text-muted-foreground/60">
               Valori di riferimento del modello Filo Diretto, non garantiti.
             </p>
           </div>
         </section>
 
-        {/* Cosa fa Filo Diretto — le tre cose, in evidenza */}
-        <section id="cosa-fa" className="py-28 px-6">
+        {/* Cosa fa — il pass che fa tre cose: Parla, Attiva, Fa crescere */}
+        <section id="cosa-fa" className="py-28 px-6 bg-card border-y border-border/20">
           <div className="max-w-6xl mx-auto">
-            <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-16">
-              Cosa fa Filo Diretto
+            <div className="max-w-2xl mb-20">
+              <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
+                Il pass che fa tre cose
+              </div>
+              <h2 className="font-serif text-5xl md:text-7xl leading-[1.05]">
+                Parla. Attiva. <span className="text-primary italic">Fa crescere.</span>
+              </h2>
             </div>
-            <div className="space-y-5">
+
+            <div className="space-y-20 md:space-y-28">
               {pillars.map((feat, i) => (
                 <motion.div
-                  key={feat.n}
-                  initial={{ opacity: 0, y: 16 }}
+                  key={feat.verb}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-8 items-center rounded-2xl border border-border/40 bg-card p-8 md:p-10"
+                  transition={{ duration: 0.5 }}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center"
                 >
-                  <div className="md:col-span-1 font-serif text-5xl text-primary/40 leading-none">
-                    {feat.n}
+                  <div className={`rounded-2xl overflow-hidden border border-border/30 bg-background ${i % 2 === 1 ? "md:order-2" : ""}`}>
+                    <img src={feat.img} alt={feat.alt} className="w-full block" />
                   </div>
-                  <div className="md:col-span-5 flex items-center gap-4">
-                    <div className="w-12 h-12 shrink-0 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-                      <feat.icon className="h-5 w-5 text-primary" />
+                  <div className={i % 2 === 1 ? "md:order-1" : ""}>
+                    <div className="flex items-baseline gap-3 mb-4">
+                      <span className="font-serif text-3xl md:text-4xl text-primary italic">{feat.verb}</span>
+                      <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{feat.tag}</span>
                     </div>
-                    <h3 className="font-serif text-2xl md:text-3xl leading-tight">{feat.title}</h3>
+                    <h3 className="font-serif text-2xl md:text-3xl leading-tight mb-5">{feat.title}</h3>
+                    <p className="text-lg text-muted-foreground leading-relaxed font-light">{feat.desc}</p>
                   </div>
-                  <p className="md:col-span-6 text-muted-foreground text-base leading-relaxed">
-                    {feat.desc}
-                  </p>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Nel Wallet, zero app */}
+        <section className="py-28 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+              <div>
+                <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
+                  Nel Wallet, senza app
+                </div>
+                <h2 className="font-serif text-4xl md:text-6xl leading-[1.05] mb-6">
+                  Un solo pass. <span className="text-primary italic">Zero app.</span>
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed font-light">
+                  Badge aziendale, notifiche e convenzioni vivono nell'Apple o Google Wallet che il dipendente ha già. Le comunicazioni importanti arrivano sulla schermata di blocco, dove è impossibile ignorarle. Niente da scaricare, niente password.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-2xl overflow-hidden border border-border/30 bg-card">
+                  <img src={imgWallet} alt="Il pass Filo Diretto nel Wallet dello smartphone" className="w-full block" />
+                </div>
+                <div className="rounded-2xl overflow-hidden border border-border/30 bg-card">
+                  <img src={imgNotifiche} alt="Notifiche di Filo Diretto sulla schermata di blocco" className="w-full block" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -266,7 +317,7 @@ export default function Home() {
         </section>
 
         {/* Video demo */}
-        <section id="soluzione" className="py-28 px-6 relative z-10">
+        <section id="soluzione" className="py-28 px-6 relative z-10 bg-card border-y border-border/20">
           <div className="max-w-5xl mx-auto">
             <div className="max-w-2xl mb-12">
               <div className="text-primary text-xs font-semibold tracking-[0.25em] uppercase mb-7">
