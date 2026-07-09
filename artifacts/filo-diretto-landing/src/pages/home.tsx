@@ -56,6 +56,12 @@ const useCases = [
   "Onboarding nuovi assunti",
 ];
 
+const results = [
+  { pre: "fino a", value: "98%", label: "Tasso di lettura" },
+  { pre: "fino a", value: "4x", label: "Engagement reale" },
+  { pre: "", value: "100%", label: "Reward erogati in automatico" },
+];
+
 export default function Home() {
   useEffect(() => {
     document.title = "Filo Diretto | La linea diretta con i tuoi dipendenti";
@@ -144,6 +150,23 @@ export default function Home() {
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed font-light">
               Le Risorse Umane non sono più solo amministrazione: sono il cuore strategico dell'azienda, fatto di cultura, ascolto e relazione. Filo Diretto trasforma le comunicazioni interne in coinvolgimento vero, quello che fa sentire ogni persona parte dell'azienda e la fa crescere insieme a te.
+            </p>
+
+            <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {results.map((r) => (
+                <div key={r.label} className="rounded-2xl border border-border/40 bg-card p-8">
+                  {r.pre && (
+                    <div className="text-xs uppercase tracking-wider text-muted-foreground/70 mb-1">
+                      {r.pre}
+                    </div>
+                  )}
+                  <div className="font-serif text-5xl text-primary mb-2">{r.value}</div>
+                  <div className="text-sm text-muted-foreground">{r.label}</div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-xs text-muted-foreground/60">
+              Valori di riferimento del modello Filo Diretto, non garantiti.
             </p>
           </div>
         </section>
